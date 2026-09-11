@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShareWeb</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <style>
+    * { box-sizing: border-box; }
+    body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background: #090d16; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #f8fafc; }
+    #loader { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center; padding: 20px; }
+    .spinner { width: 44px; height: 44px; border: 3px solid rgba(255,255,255,0.08); border-top-color: #6366f1; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 20px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #app-frame { width: 100%; height: 100%; border: none; display: none; position: absolute; top: 0; left: 0; }
+  </style>
+</head>
+<body>
+  <div id="loader">
+    <div class="spinner"></div>
+    <h2 style="font-weight: 600; margin: 0 0 8px 0; font-size: 20px; letter-spacing: -0.02em;">Connecting to ShareWeb...</h2>
+    <p style="color: #94a3b8; margin: 0; font-size: 14px;">Establishing secure edge stream directly from host Mac</p>
+  </div>
+  <iframe id="app-frame" allow="camera; microphone; clipboard-read; clipboard-write; fullscreen"></iframe>
+  <script>
+    async function init() {
+      try {
+        const res = await fetch("tunnel.json?t=" + Date.now());
+        const data = await res.json();
+        if (data && data.publicUrl) {
+          const frame = document.getElementById("app-frame");
+          frame.src = data.publicUrl + window.location.pathname + window.location.search;
+          frame.onload = () => {
+            document.getElementById("loader").style.display = "none";
+            frame.style.display = "block";
+          };
+        } else {
+          throw new Error("Tunnel offline");
+        }
+      } catch (e) {
+        document.getElementById("loader").innerHTML = "<div style=\"background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.2); padding:24px 32px; border-radius:16px; max-width:400px;\"><h3 style=\"color:#f87171; margin:0 0 8px 0; font-size:18px;\">Host Machine Offline</h3><p style=\"color:#94a3b8; margin:0; font-size:13px; line-height:1.5;\">The host Mac is sleeping or reconnecting to the edge tunnel. Please check back shortly.</p></div>";
+      }
+    }
+    init();
+  </script>
+</body>
+</html>

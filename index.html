@@ -28,6 +28,14 @@
   </div>
   <iframe id="app-frame" allow="camera; microphone; clipboard-read; clipboard-write; fullscreen"></iframe>
   <script>
+    window.addEventListener("message", function (e) {
+      if (e.data && e.data.type === "sw-navigate" && e.data.path) {
+        try {
+          window.history.replaceState(null, "", e.data.path);
+        } catch (_) {}
+      }
+    });
+
     async function init() {
       try {
         const res = await fetch("/tunnel.json?t=" + Date.now());

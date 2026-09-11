@@ -24,9 +24,13 @@
   <script>
     async function init() {
       try {
-        const res = await fetch("tunnel.json?t=" + Date.now());
+        const res = await fetch("/tunnel.json?t=" + Date.now());
         const data = await res.json();
         if (data && data.publicUrl) {
+          if (window.location.pathname.indexOf("/auth/google/callback") !== -1) {
+            window.location.replace(data.publicUrl + window.location.pathname + window.location.search);
+            return;
+          }
           const frame = document.getElementById("app-frame");
           frame.src = data.publicUrl + window.location.pathname + window.location.search;
           frame.onload = () => {

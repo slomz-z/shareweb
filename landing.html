@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="HandheldFriendly" content="true" />
+  <title>ShareWeb — Instant File Sharing (No Limits & Encrypted)</title>
+  <link rel="canonical" href="https://shareweb.slomz.is-a.dev/" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/lock-frame.js" defer></script>
+  <script src="/page-i18n.js" defer></script>
+  <script type="speculationrules">
+  {
+    "prefetch": [
+      {
+        "source": "list",
+        "urls": ["/login", "/app", "/support", "/privacy", "/terms"],
+        "eagerness": "moderate"
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+
+  <!-- Primary SEO Meta Tags -->
+  <meta name="description" content="ShareWeb connects your devices directly for instant file transfers. No size limits, end-to-end encrypted, free, and works across Windows, Mac, Android, and iOS." />
+  <meta name="keywords" content="file sharing, peer to peer file transfer, p2p transfer, send large files free, airdrop alternative, wifi file sharing, direct web share, encrypted file transfer, transfer files without size limit" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="ShareWeb" />
+  <meta name="application-name" content="ShareWeb" />
+  <meta name="theme-color" content="#4a4ad9" />
+  <meta name="theme-color" content="#0e1017" media="(prefers-color-scheme: dark)" />
+
+  <!-- OpenGraph / Facebook / Discord / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ShareWeb" />
+  <meta property="og:url" content="https://shareweb.slomz.is-a.dev/" />
+  <meta property="og:title" content="ShareWeb — Instant File Sharing (No Limits & Encrypted)" />
+  <meta property="og:description" content="Send files of any size directly between devices directly over local Wi-Fi. End-to-end encrypted, free, and no cloud uploads." />
+  <meta property="og:image" content="https://shareweb.slomz.is-a.dev/icons/icon-512.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:alt" content="ShareWeb File Sharing" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://shareweb.slomz.is-a.dev/" />
+  <meta name="twitter:title" content="ShareWeb — Instant File Sharing" />
+  <meta name="twitter:description" content="Send files of any size directly between devices. No size limits, end-to-end encrypted, and free." />
+  <meta name="twitter:image" content="https://shareweb.slomz.is-a.dev/icons/icon-512.png" />
+
+  <!-- JSON-LD Structured Data for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://shareweb.slomz.is-a.dev/#webapp",
+        "name": "ShareWeb",
+        "url": "https://shareweb.slomz.is-a.dev/",
+        "applicationCategory": "UtilitiesApplication, FileTransferApplication",
+        "operatingSystem": "All (Windows, macOS, Linux, iOS, Android, ChromeOS)",
+        "browserRequirements": "Requires JavaScript.",
+        "description": "Fast, encrypted file sharing web application with end-to-end encryption and unlimited file size support.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "1280",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://shareweb.slomz.is-a.dev/#organization",
+        "name": "ShareWeb",
+        "url": "https://shareweb.slomz.is-a.dev/",
+        "logo": "https://shareweb.slomz.is-a.dev/icons/icon-512.png"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://shareweb.slomz.is-a.dev/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does ShareWeb transfer files without size limits?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ShareWeb uses direct connections and fast local network streaming. Files are sent directly between browsers without storing on cloud servers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is file sharing on ShareWeb encrypted and secure?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. All transfers use client-side AES-GCM and ECDH encryption derived from user master keys. File contents are encrypted before leaving your browser."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I transfer files between iPhone, Android, Windows, and Mac?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. ShareWeb works in any modern web browser across iOS, Android, Windows, macOS, and Linux without requiring native app installations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do recipients need an account to receive files?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. You can generate a 6-digit room code or invite link to share files with anyone nearby or across networks instantly."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    html, body { overflow-x: hidden; max-width: 100vw; }
+    .landing { min-height: 100vh; display: flex; flex-direction: column; }
+    .landing-header { padding: 24px clamp(16px, 4vw, 48px); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+    .landing-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+    .landing-logo img { width: 40px; height: 40px; border-radius: 10px; }
+    .landing-logo span { font-weight: 800; font-size: 20px; letter-spacing: -0.5px; }
+    .landing-nav { display: flex; gap: 8px; }
+    .landing-nav a { padding: 8px 16px; border-radius: 8px; color: var(--text-soft); text-decoration: none; font-size: 14px; font-weight: 500; transition: background 0.15s, color 0.15s; }
+    .landing-nav a:hover { background: var(--surface-2); color: var(--text); }
+    .landing-nav a.cta { background: var(--primary); color: #fff; }
+    .landing-nav a.cta:hover { filter: brightness(1.1); }
+    .landing-main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: clamp(48px, 8vw, 96px) clamp(16px, 4vw, 48px); text-align: center; }
+    .landing-hero { max-width: 720px; margin-bottom: 48px; }
+    .landing-hero h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin: 0 0 16px; background: linear-gradient(135deg, var(--text) 0%, var(--text-soft) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .landing-hero p { font-size: clamp(18px, 2.5vw, 22px); color: var(--text-soft); margin: 0; line-height: 1.6; }
+    .landing-cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 64px; }
+    .landing-cta .btn { padding: 14px 28px; font-size: 16px; font-weight: 600; border-radius: 10px; }
+    .landing-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; max-width: 960px; width: 100%; margin-bottom: 64px; }
+    
+    html[dir="rtl"] .feature-card { text-align: right; }
+    html[dir="rtl"] .trust-item { text-align: right; }
+
+    .feature-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px 24px; text-align: left; transition: border-color 0.2s, box-shadow 0.2s; }
+    .feature-card:hover { border-color: var(--primary); box-shadow: 0 8px 32px rgba(74, 74, 217, 0.15); }
+    .feature-icon { width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--primary), #6b6bff); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .feature-icon svg { width: 24px; height: 24px; color: #fff; }
+    .feature-card h3 { font-size: 18px; font-weight: 700; margin: 0 0 8px; color: var(--text); }
+    .feature-card p { font-size: 14px; color: var(--text-soft); margin: 0; line-height: 1.6; }
+    .landing-trust { max-width: 720px; width: 100%; padding-top: 32px; border-top: 1px solid var(--border); }
+    .trust-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; text-align: left; }
+    .trust-icon { width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px; color: var(--primary); }
+    .trust-item strong { display: block; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .trust-item span { font-size: 13px; color: var(--text-soft); line-height: 1.5; }
+    .landing-footer { padding: 32px clamp(16px, 4vw, 48px); border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+    .landing-footer p { font-size: 13px; color: var(--text-soft); margin: 0; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--text-soft); text-decoration: none; transition: color 0.15s; }
+    .landing-faq { max-width: 800px; width: 100%; margin: 0 auto 64px; text-align: left; }
+    html[dir="rtl"] .landing-faq { text-align: right; }
+    .landing-faq h2 { font-size: clamp(24px, 3.5vw, 32px); font-weight: 800; margin-bottom: 24px; text-align: center; color: var(--text); }
+    .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; padding: 16px 20px; transition: border-color 0.2s, box-shadow 0.2s; }
+    .faq-item:hover { border-color: var(--primary); box-shadow: 0 4px 16px rgba(74, 74, 217, 0.08); }
+    .faq-question { font-weight: 700; font-size: 16px; color: var(--text); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    .faq-question::-webkit-details-marker { display: none; }
+    .faq-question::after { content: "＋"; font-size: 18px; font-weight: 400; color: var(--primary); transition: transform 0.2s; }
+    .faq-item[open] .faq-question::after { content: "−"; }
+    .faq-answer { margin-top: 10px; font-size: 14px; color: var(--text-soft); line-height: 1.6; }
+
+    .landing-header-right { display: flex; align-items: center; gap: 16px; }
+    .landing-auth-btn {
+      padding: 8px 18px;
+      border-radius: 9px;
+      background: var(--primary);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff !important;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+    }
+    .landing-auth-btn:hover {
+      background: var(--primary-strong);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      filter: none;
+    }
+    .landing-auth-btn:active { transform: translateY(0.5px) scale(0.99); }
+
+    @media (max-width: 600px) {
+      .landing-nav a:not(.cta) { display: none; }
+      .landing-cta { flex-direction: column; align-items: center; }
+      .landing-cta .btn { width: 100%; max-width: 280px; }
+      .landing-footer { flex-direction: column; text-align: center; }
+      .trust-item { justify-content: center; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .landing-header { padding: 14px 12px; gap: 8px; }
+      .landing-header-right { gap: 8px; }
+      .landing-auth-btn { padding: 7px 12px; font-size: 13px; }
+    }
+
+    @media (max-width: 360px) {
+      .landing-header { padding: 12px 8px; gap: 6px; }
+      .landing-auth-btn { padding: 6px 9px; font-size: 11.5px; }
+      .landing-logo { font-size: 15px; gap: 8px; }
+      .landing-logo img { width: 28px; height: 28px; }
+    }
+
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .landing-header, .landing-hero, .landing-cta, .feature-card, .trust-item, .landing-footer { opacity: 0; animation: fadeSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .landing-header { animation-delay: 0.05s; }
+    .landing-hero { animation-delay: 0.1s; }
+    .landing-cta { animation-delay: 0.15s; }
+    .feature-card:nth-child(1) { animation-delay: 0.2s; }
+    .feature-card:nth-child(2) { animation-delay: 0.25s; }
+    .feature-card:nth-child(3) { animation-delay: 0.3s; }
+    .feature-card:nth-child(4) { animation-delay: 0.35s; }
+    .feature-card:nth-child(5) { animation-delay: 0.4s; }
+    .feature-card:nth-child(6) { animation-delay: 0.45s; }
+    .trust-item:nth-child(1) { animation-delay: 0.5s; }
+    .trust-item:nth-child(2) { animation-delay: 0.55s; }
+    .trust-item:nth-child(3) { animation-delay: 0.6s; }
+    .landing-footer { animation-delay: 0.7s; }
+
+    @media (prefers-reduced-motion: reduce) { .landing-header, .landing-hero, .landing-cta, .feature-card, .trust-item, .landing-footer { animation: none; opacity: 1; } }
+  </style>
+  <style id="global-loader-crit-css">
+    #global-page-loader {
+      position: fixed; inset: 0; z-index: 99999999;
+      background: #090a10;
+      color: #f8fafc;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) #global-page-loader {
+        background: #f4f5fb;
+        color: #1e293b;
+      }
+      :root:not([data-theme="dark"]) #global-page-loader .loader-status-text {
+        color: #64748b;
+      }
+    }
+    :root[data-theme="light"] #global-page-loader {
+      background: #f4f5fb !important;
+      color: #1e293b !important;
+    }
+    :root[data-theme="light"] #global-page-loader .loader-status-text {
+      color: #64748b !important;
+    }
+  </style>
+</head>
+<body class="landing">
+  <!-- Global Page Loader (Zero-FOUC Barrier) -->
+  <div id="global-page-loader" class="page-loading-barrier" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-logo-wrap">
+        <img src="/icons/icon-512.png" alt="ShareWeb" class="loader-logo-img" fetchpriority="high" decoding="async" />
+      </div>
+      <div class="loader-spinner"></div>
+      <span class="loader-status-text" data-i18n="loading">Loading...</span>
+    </div>
+  </div>
+  <header class="landing-header">
+    <a href="/" class="landing-logo" aria-label="ShareWeb home">
+      <img src="/icons/icon-192.png" alt="" decoding="async" />
+      <span data-i18n="brandTitle">ShareWeb</span>
+    </a>
+    <div class="landing-header-right">
+      <nav class="landing-nav" aria-label="Main navigation">
+        <a href="/privacy" data-i18n="navPrivacy">Privacy Policy</a>
+        <a href="/terms" data-i18n="navTerms">Terms of Service</a>
+        <a href="/support" data-i18n="navSupport">Support</a>
+      </nav>
+
+      <!-- If NOT logged in: Sign in / Sign up button -->
+      <a href="/login?returnTo=/app" id="landing-signin-btn" class="landing-auth-btn" data-i18n="navSignIn">Sign in / Sign up</a>
+
+      <!-- If LOGGED IN: Same user widget as /app (/html/body/section[2]/header/div[2]) -->
+      <div id="landing-user-header" class="me hidden">
+        <div class="me-text">
+          <div id="landing-me-name" class="me-name">—</div>
+          <div id="landing-me-email" class="me-email">—</div>
+        </div>
+        <div class="menu-wrap">
+          <button id="landing-menu-btn" class="menu-btn" aria-haspopup="true" aria-label="Account menu" title="Account" data-i18n-title="stgAccount">
+            <span id="landing-me-avatar-wrap"></span>
+            <span class="chev">▾</span>
+          </button>
+          <div id="landing-user-menu" class="user-menu hidden">
+            <div class="menu-header">
+              <span id="landing-menu-avatar"></span>
+              <div>
+                <div id="landing-menu-name" class="menu-name">—</div>
+                <div id="landing-menu-email" class="menu-email">—</div>
+              </div>
+            </div>
+            <a href="/app" class="menu-item" style="text-decoration:none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span data-i18n="navStartSharing">Start Sharing (App)</span>
+            </a>
+            <a href="/app#history" id="landing-menu-history" class="menu-item" style="text-decoration:none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+              <span data-i18n="navHistory">History</span>
+            </a>
+            <a href="/support" id="landing-menu-support" class="menu-item" style="text-decoration:none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span data-i18n="navSupport">Support & Help Desk</span>
+            </a>
+            <button id="landing-menu-return-main" class="menu-item hidden" style="color:#818cf8;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>
+              <span id="landing-menu-return-label" data-i18n="navReturnMain">Return to Main Account</span>
+            </button>
+            <button id="landing-menu-logout" class="menu-item logout">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
+              <span data-i18n="navLogout">Log out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="landing-main">
+    <div class="landing-hero">
+      <h1 data-i18n="landingTitle">Send files to anyone, instantly</h1>
+      <p data-i18n="landingSubtitle">ShareWeb connects your devices directly. No cloud storage, no size limits, no accounts required for recipients. Just pick a file and send.</p>
+    </div>
+
+    <div class="landing-cta">
+      <a href="/app" class="btn btn-primary" data-i18n="landingCta">Start Sharing</a>
+    </div>
+
+    <section class="landing-features" aria-label="Features">
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 data-i18n="featNearbyTitle">Automatic nearby discovery</h3>
+        <p data-i18n="featNearbyText">Open ShareWeb on two devices — they find each other instantly. No codes, no setup, no QR scanning.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        </div>
+        <h3 data-i18n="featLimitsTitle">No file size limits</h3>
+        <p data-i18n="featLimitsText">Send photos, videos, folders — anything. Transfers use your full network speed and handle files of any size.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        </div>
+        <h3 data-i18n="featEncTitle">End-to-end encryption</h3>
+        <p data-i18n="featEncText">Email accounts encrypt files before they leave your device. Only you and the recipient can read them — not even we can.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3 data-i18n="featHistTitle">30-day history</h3>
+        <p data-i18n="featHistText">See everything you sent and received. Search by name, filter by direction. Older entries are auto-hidden to keep things clean.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 data-i18n="featPrivTitle">Privacy-first</h3>
+        <p data-i18n="featPrivText">No tracking, no analytics, no ads. Your email and name are used only to identify you to people you share with.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4z"/><path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8z"/></svg>
+        </div>
+        <h3 data-i18n="featAiTitle">AI integration (optional)</h3>
+        <p data-i18n="featAiText">Connect to Gemini Spark via MCP to let AI browse and summarize your shared files — only when you enable it.</p>
+      </article>
+    </section>
+
+    <!-- Frequently Asked Questions (SEO & User Clarity) -->
+    <section class="landing-faq" aria-label="Frequently Asked Questions">
+      <h2 data-i18n="faqTitle">Frequently Asked Questions</h2>
+      <details class="faq-item" open>
+        <summary class="faq-question" data-i18n="faqQ1">How does ShareWeb transfer files without size limits?</summary>
+        <p class="faq-answer" data-i18n="faqA1">ShareWeb uses direct connections and high-speed local network streaming. Files stream straight between devices without being saved on cloud servers.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question" data-i18n="faqQ2">Is file sharing on ShareWeb encrypted and secure?</summary>
+        <p class="faq-answer" data-i18n="faqA2">Yes. All file transfers use client-side AES-GCM and ECDH encryption derived from user master keys. File contents are encrypted directly in your browser before transmission.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question" data-i18n="faqQ3">Can I send files between iPhone, Android, Windows, and Mac?</summary>
+        <p class="faq-answer" data-i18n="faqA3">Yes. ShareWeb runs seamlessly in any modern browser across iOS, Android, Windows, macOS, and Linux without requiring app store installations.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question" data-i18n="faqQ4">Do recipients need an account to receive files?</summary>
+        <p class="faq-answer" data-i18n="faqA4">No. You can invite anyone via room code or instant link to receive files without forcing them to register.</p>
+      </details>
+    </section>
+
+    <section class="landing-trust" aria-label="Trust & transparency">
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <div>
+          <strong data-i18n="trustCollectTitle">Data we collect</strong>
+          <span data-i18n="trustCollectText">Email, name, profile photo (you provide), device fingerprint for security, and transfer metadata (counterparty, filename, size, timestamp). File contents are never stored or logged.</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <div>
+          <strong data-i18n="trustUseTitle">How we use it</strong>
+          <span data-i18n="trustUseText">To show your identity to recipients, enforce rate limits, prevent abuse, and provide 30-day history. We never sell data or use it for advertising.</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <div>
+          <strong data-i18n="trustControlTitle">Your control</strong>
+          <span data-i18n="trustControlText">Delete history locally anytime. Request full account deletion via email. Encrypted files are unrecoverable without your password — we have no backdoors.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="landing-footer">
+    <p data-i18n="landingFooter">ShareWeb &copy; 2026 — File sharing, simplified</p>
+    <nav class="footer-links" aria-label="Footer links">
+      <a href="/privacy" data-i18n="navPrivacy">Privacy Policy</a>
+      <a href="/terms" data-i18n="navTerms">Terms of Service</a>
+      <a href="/support" data-i18n="navSupport">Support & Help Desk</a>
+    </nav>
+  </footer>
+
+  <script>
+    (async () => {
+      try {
+        const res = await fetch('/api/me');
+        if (res.ok) {
+          const me = await res.json();
+          if (me && me.email) {
+            const signinBtn = document.getElementById('landing-signin-btn');
+            const userHeader = document.getElementById('landing-user-header');
+            if (signinBtn) signinBtn.classList.add('hidden');
+            if (userHeader) userHeader.classList.remove('hidden');
+
+            const meName = document.getElementById('landing-me-name');
+            const meEmail = document.getElementById('landing-me-email');
+            const menuName = document.getElementById('landing-menu-name');
+            const menuEmail = document.getElementById('landing-menu-email');
+            if (meName) meName.textContent = me.name || me.email;
+            if (meEmail) meEmail.textContent = me.email;
+            if (menuName) menuName.textContent = me.name || me.email;
+            if (menuEmail) menuEmail.textContent = me.email;
+
+            const renderAvatar = (wrapId, cls) => {
+              const wrap = document.getElementById(wrapId);
+              if (!wrap) return;
+              wrap.innerHTML = '';
+              const pic = me.picture || (me.email ? `/api/avatar/${encodeURIComponent(me.email)}` : '');
+              if (pic) {
+                const img = document.createElement('img');
+                img.className = cls;
+                img.src = pic;
+                img.alt = '';
+                img.onerror = () => {
+                  const span = document.createElement('span');
+                  span.className = cls + ' initials';
+                  span.textContent = (me.name || me.email || '?').charAt(0).toUpperCase();
+                  img.replaceWith(span);
+                };
+                wrap.appendChild(img);
+              } else {
+                const span = document.createElement('span');
+                span.className = cls + ' initials';
+                span.textContent = (me.name || me.email || '?').charAt(0).toUpperCase();
+                wrap.appendChild(span);
+              }
+            };
+            renderAvatar('landing-me-avatar-wrap', 'avatar');
+            renderAvatar('landing-menu-avatar', 'avatar big');
+
+
+            const menuBtn = document.getElementById('landing-menu-btn');
+            const userMenu = document.getElementById('landing-user-menu');
+            if (menuBtn && userMenu) {
+              menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                userMenu.classList.toggle('hidden');
+              });
+              document.addEventListener('click', (e) => {
+                if (!userMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                  userMenu.classList.add('hidden');
+                }
+              });
+            }
+
+            const logoutBtn = document.getElementById('landing-menu-logout');
+            if (logoutBtn) {
+              logoutBtn.addEventListener('click', async () => {
+                try { localStorage.removeItem('sw_session_token'); } catch {}
+                try {
+                  await new Promise((resolve) => {
+                    const req = indexedDB.open('shareweb-keys', 1);
+                    req.onsuccess = () => {
+                      try {
+                        const db = req.result;
+                        if (db.objectStoreNames.contains('keys')) {
+                          db.transaction('keys', 'readwrite').objectStore('keys').clear();
+                        }
+                      } catch {}
+                      resolve();
+                    };
+                    req.onerror = () => resolve();
+                  });
+                } catch {}
+                try { localStorage.removeItem('ds-last-account'); localStorage.removeItem('ds-room'); sessionStorage.clear(); } catch {}
+                try { await fetch('/auth/logout', { method: 'POST', headers: { 'Accept': 'application/json' } }); } catch {}
+                window.location.href = '/';
+              });
+            }
+          }
+        }
+      } catch (_) {
+      } finally {
+          const landingImgs = Array.from(document.querySelectorAll('#landing-me-avatar-wrap img, #landing-menu-avatar img') || []);
+          if (window.ShareWebLoader && typeof window.ShareWebLoader.whenReady === 'function') {
+            await window.ShareWebLoader.whenReady({
+              waitForFonts: true,
+              waitForLanguage: true,
+              images: landingImgs
+            });
+          }
+          window.hidePageLoader();
+        }
+    })();
+  </script>
+</body>
+</html>

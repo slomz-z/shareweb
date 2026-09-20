@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /login
+Allow: /support
+Allow: /privacy
+Allow: /terms
+Disallow: /api/
+Disallow: /auth/
+Disallow: /app
+Disallow: /Room/
+
+Sitemap: https://shareweb.slomz.is-a.dev/sitemap.xml

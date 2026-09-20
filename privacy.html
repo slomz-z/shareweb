@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="HandheldFriendly" content="true" />
+  <title data-i18n="privacyTitle">Privacy Policy — ShareWeb</title>
+  <link rel="canonical" href="https://shareweb.slomz.is-a.dev/privacy" />
+  <meta name="description" content="ShareWeb Privacy Policy. Learn how your data is handled with end-to-end encryption and zero tracking." />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/lock-frame.js" defer></script>
+  <script src="/page-i18n.js" defer></script>
+  <script type="speculationrules">
+  {
+    "prefetch": [
+      {
+        "source": "list",
+        "urls": ["/", "/app", "/terms", "/support"],
+        "eagerness": "moderate"
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <style>
+    .policy-page { max-width: 900px; margin: 0 auto; padding: clamp(24px, 4vw, 56px) clamp(16px, 3vw, 32px); }
+    .policy-header { margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-soft); text-decoration: none; font-size: 14px; margin-bottom: 16px; transition: color 0.15s; }
+    .back-link:hover { color: var(--primary); }
+    .policy-header h1 { margin: 0; font-size: clamp(30px, 4vw, 40px); font-weight: 800; letter-spacing: -0.5px; }
+    .policy-meta { margin: 12px 0 0; color: var(--text-soft); font-size: 14px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+    .policy-meta strong { color: var(--text); }
+    .policy-content { line-height: 1.8; font-size: 15px; }
+    .policy-content section { margin-bottom: 36px; }
+    .policy-content h2 { font-size: clamp(19px, 2.2vw, 22px); font-weight: 700; margin: 0 0 14px; color: var(--text); padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .policy-content h3 { font-size: 16px; font-weight: 600; margin: 20px 0 10px; color: var(--text); }
+    .policy-content p { margin: 0 0 14px; color: var(--text-soft); line-height: 1.75; }
+    .policy-content ul { margin: 0 0 14px; padding-left: 22px; }
+    .policy-content li { margin-bottom: 8px; color: var(--text-soft); line-height: 1.7; }
+    .policy-content strong { color: var(--text); font-weight: 600; }
+    .policy-content a { color: var(--primary); text-decoration: none; }
+    .policy-content a:hover { text-decoration: underline; }
+    .policy-content .highlight-box { background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 12px; padding: 18px 20px; margin: 18px 0; }
+    .policy-content .highlight-box p { margin: 0; color: var(--text); }
+    .policy-content table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13.5px; }
+    .policy-content th, .policy-content td { padding: 12px 14px; border: 1px solid var(--border); text-align: left; }
+    .policy-content th { background: var(--surface-2); font-weight: 600; color: var(--text); }
+    .policy-content td { color: var(--text-soft); }
+    .policy-footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; color: var(--text-soft); font-size: 13.5px; }
+    html[dir="rtl"] .policy-page { text-align: right; }
+    html[dir="rtl"] .policy-content ul { padding-left: 0; padding-right: 22px; }
+    html[dir="rtl"] .policy-content th, html[dir="rtl"] .policy-content td { text-align: right; }
+    html[dir="rtl"] .policy-meta { flex-direction: row-reverse; }
+
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-in { animation: fadeSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .policy-content section { opacity: 0; animation: fadeSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .policy-content section:nth-child(1) { animation-delay: 0.04s; }
+    .policy-content section:nth-child(2) { animation-delay: 0.08s; }
+    .policy-content section:nth-child(3) { animation-delay: 0.12s; }
+    .policy-content section:nth-child(4) { animation-delay: 0.16s; }
+    .policy-content section:nth-child(5) { animation-delay: 0.20s; }
+    .policy-content section:nth-child(6) { animation-delay: 0.24s; }
+    .policy-content section:nth-child(7) { animation-delay: 0.28s; }
+    .policy-content section:nth-child(8) { animation-delay: 0.32s; }
+    .policy-content section:nth-child(9) { animation-delay: 0.36s; }
+    .policy-content section:nth-child(10) { animation-delay: 0.40s; }
+    .policy-footer { opacity: 0; animation: fadeSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards; }
+
+    @media (prefers-reduced-motion: reduce) { .animate-in, .policy-content section, .policy-footer { animation: none; opacity: 1; } }
+  </style>
+  <style id="global-loader-crit-css">
+    #global-page-loader {
+      position: fixed; inset: 0; z-index: 99999999;
+      background: #090a10;
+      color: #f8fafc;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) #global-page-loader {
+        background: #f4f5fb;
+        color: #1e293b;
+      }
+      :root:not([data-theme="dark"]) #global-page-loader .loader-status-text {
+        color: #64748b;
+      }
+    }
+    :root[data-theme="light"] #global-page-loader {
+      background: #f4f5fb !important;
+      color: #1e293b !important;
+    }
+    :root[data-theme="light"] #global-page-loader .loader-status-text {
+      color: #64748b !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Global Page Loader (Zero-FOUC Barrier) -->
+  <div id="global-page-loader" class="page-loading-barrier" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-logo-wrap">
+        <img src="/icons/icon-512.png" alt="ShareWeb" class="loader-logo-img" fetchpriority="high" decoding="async" />
+      </div>
+      <div class="loader-spinner"></div>
+      <span class="loader-status-text" data-i18n="loading">Loading...</span>
+    </div>
+  </div>
+  <main class="policy-page">
+    <header class="policy-header animate-in">
+      <a href="/" class="btn-corner-back" id="policy-back" aria-label="Back" data-i18n-title="back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        <span data-i18n="back">Back</span>
+      </a>
+      <h1 data-i18n="privacyTitle">Privacy Policy</h1>
+      <div class="policy-meta">
+        <div><strong data-i18n="policyEffective">Effective:</strong> <span data-i18n="policyEffectiveDate">August 27, 2026</span></div>
+        <div><strong data-i18n="policyVersion">Version:</strong> <span data-i18n="policyVersionNum">2.0</span></div>
+        <div><strong data-i18n="policyLastUpdated">Last Updated:</strong> <span data-i18n="policyLastUpdatedDate">August 27, 2026</span></div>
+      </div>
+    </header>
+
+    <article class="policy-content">
+      <!-- Section 1 -->
+      <section>
+        <h2 data-i18n="privSec1Title">1. Introduction & Zero-Knowledge Guarantee</h2>
+        <p data-i18n="privSec1P1">This Privacy Policy explains how ShareWeb ("we", "our", or "the Service") handles your information. ShareWeb is built on a zero-knowledge architectural foundation.</p>
+        <p data-i18n="privSec1P2">We do not sell, rent, monetize, or profile your personal data. We never have access to the unencrypted contents of your shared files.</p>
+      </section>
+
+      <!-- Section 2 -->
+      <section>
+        <h2 data-i18n="privSec2Title">2. Information We Collect</h2>
+        <p data-i18n="privSec2P1">We collect only the minimal data points necessary to authenticate accounts and deliver transfers:</p>
+        <ul>
+          <li data-i18n="privSec2Li1">Account Identity: Email address, display name, profile avatar, and salted scrypt password hash (or Google OAuth sub ID and name).</li>
+          <li data-i18n="privSec2Li2">Transfer Metadata: Filename, byte size, MIME type, sender/recipient email identifiers, and completion timestamps (retained for 30 days in your history).</li>
+          <li data-i18n="privSec2Li3">Technical & Network Diagnostics: IP address (for localized routing, rate-limit security, and device blocks), WebSocket session state, and essential session cookies.</li>
+        </ul>
+      </section>
+
+      <!-- Section 3 -->
+      <section>
+        <h2 data-i18n="privSec3Title">3. End-to-End Encryption & Cryptography</h2>
+        <p data-i18n="privSec3P1">Every file is encrypted client-side in the sender's browser using AES-256-GCM before transmission. Ephemeral per-file keys are wrapped using public-key cryptography (ECDH P-256).</p>
+        <div class="highlight-box">
+          <p data-i18n="privSec3Box">Zero-Knowledge Guarantee: The server receives, stores, and relays only encrypted ciphertext blobs. The server operator has zero cryptographic ability to inspect, decrypt, or read your file contents.</p>
+        </div>
+      </section>
+
+      <!-- Section 4 -->
+      <section>
+        <h2 data-i18n="privSec4Title">4. On-Device AI Content Safety</h2>
+        <p data-i18n="privSec4P1">Content safety checks are executed entirely on your device using TensorFlow.js client-side machine learning models.</p>
+        <p data-i18n="privSec4P2">Files are never uploaded to our servers or third parties for content scanning. Only safety classification results and blocked file hashes are transmitted if a severe policy violation occurs.</p>
+      </section>
+
+      <!-- Section 5 -->
+      <section>
+        <h2 data-i18n="privSec5Title">5. Data Retention & Deletion Schedule</h2>
+        <p data-i18n="privSec5P1">We follow strict data minimization and automated purge lifecycles:</p>
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="privSec5Th1">Data Category</th>
+              <th data-i18n="privSec5Th2">Retention Period</th>
+              <th data-i18n="privSec5Th3">Purge Mechanism</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="privSec5Td1_1">Account Profile (Email, Name, Avatar)</td>
+              <td data-i18n="privSec5Td1_2">Active Account Lifetime</td>
+              <td data-i18n="privSec5Td1_3">Permanent purge within 48h upon deletion</td>
+            </tr>
+            <tr>
+              <td data-i18n="privSec5Td2_1">Transfer Metadata (History)</td>
+              <td data-i18n="privSec5Td2_2">30 Days rolling</td>
+              <td data-i18n="privSec5Td2_3">Automated rolling expiration</td>
+            </tr>
+            <tr>
+              <td data-i18n="privSec5Td3_1">Relayed File Ciphertext Buffers</td>
+              <td data-i18n="privSec5Td3_2">Until delivery (max 7 days)</td>
+              <td data-i18n="privSec5Td3_3">Instant deletion upon transfer completion</td>
+            </tr>
+            <tr>
+              <td data-i18n="privSec5Td4_1">Session & Security Cookies</td>
+              <td data-i18n="privSec5Td4_2">7 Days rolling</td>
+              <td data-i18n="privSec5Td4_3">Automatic session expiration</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Section 6 -->
+      <section>
+        <h2 data-i18n="privSec6Title">6. Legal Bases for Processing</h2>
+        <p data-i18n="privSec6P1">Under GDPR and international privacy frameworks, we process data based on contractual necessity (delivering transfers and managing accounts), legitimate interest (securing systems and preventing abuse), and legal compliance.</p>
+      </section>
+
+      <!-- Section 7 -->
+      <section>
+        <h2 data-i18n="privSec7Title">7. Your Rights & Data Portability</h2>
+        <p data-i18n="privSec7P1">You have full control over your personal data, including the right to access, rectify, download/export your transfer history, restrict processing, and request permanent erasure.</p>
+        <p data-i18n-html="privSec7P2">To exercise any of these privacy rights, submit a request via our Support Desk at <a href="/support">/support</a>.</p>
+      </section>
+
+      <!-- Section 8 -->
+      <section>
+        <h2 data-i18n="privSec8Title">8. Cookies, Local Storage & Security</h2>
+        <p data-i18n="privSec8P1">We use secure, HttpOnly session cookies for authentication, and browser IndexedDB/localStorage solely to store cryptographic keys and user UI preferences.</p>
+        <p data-i18n="privSec8P2">All network communication is enforced through HTTPS and TLS 1.3 encryption in transit.</p>
+      </section>
+
+      <!-- Section 9 -->
+      <section>
+        <h2 data-i18n="privSec9Title">9. International Transfers & Children's Privacy</h2>
+        <p data-i18n="privSec9P1">ShareWeb is not directed to children under 13 (or under 16 in the EEA/UK). We do not knowingly collect information from minors.</p>
+        <p data-i18n="privSec9P2">Data transferred across borders is protected by robust encryption and standard data protection contractual safeguards.</p>
+      </section>
+
+      <!-- Section 10 -->
+      <section>
+        <h2 data-i18n="privSec10Title">10. Contact Us & Support Desk</h2>
+        <p data-i18n-html="privSec10P1">The server operator acts as the data controller. For questions, data requests, or privacy inquiries, contact our moderation team directly via the ShareWeb Support Portal at <a href="/support">/support</a>.</p>
+      </section>
+    </article>
+
+    <footer class="policy-footer">
+      <p data-i18n="brandFooter">ShareWeb — File sharing, simplified. &copy; 2026</p>
+    </footer>
+  </main>
+  <script src="/policy.js"></script>
+</body>
+</html>

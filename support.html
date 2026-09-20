@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="HandheldFriendly" content="true" />
+  <title data-i18n="supportTitle">ShareWeb Support & Help Desk — 24/7 Assistance & FAQ</title>
+  <link rel="canonical" href="https://shareweb.slomz.is-a.dev/support" />
+  <meta name="description" content="Get help with ShareWeb file sharing, submit support tickets, appeal account suspensions, or learn how to transfer files securely." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shareweb.slomz.is-a.dev/support" />
+  <meta property="og:title" content="ShareWeb Support & Help Desk" />
+  <meta property="og:description" content="Get 24/7 support, submit tickets, and browse guides for ShareWeb." />
+  <meta property="og:image" content="https://shareweb.slomz.is-a.dev/icons/icon-512.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#4a4ad9" />
+  <meta name="theme-color" content="#090a10" media="(prefers-color-scheme: dark)" />
+
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="/style.css" />
+
+  <script src="/lock-frame.js" defer></script>
+  <script src="/page-i18n.js" defer></script>
+  <script type="speculationrules">
+  {
+    "prefetch": [
+      {
+        "source": "list",
+        "urls": ["/", "/app", "/account", "/privacy", "/terms"],
+        "eagerness": "moderate"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root,
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #090a10;
+      --card-bg: #12141e;
+      --card-bg-2: #181b28;
+      --card-bg-3: #151724;
+      --input-bg: #0d0f17;
+      --border-color: #23273a;
+      --border-glow: rgba(129, 140, 248, 0.35);
+      --accent: #4a4ad9;
+      --accent-hover: #5d5df0;
+      --text: #f0f2fa;
+      --text-muted: #8b92ab;
+      --header-bg: rgba(18, 20, 30, 0.85);
+      --hero-gradient: linear-gradient(135deg, #ffffff 30%, #818cf8 100%);
+      --msg-user-bg: #181b28;
+      --msg-mod-bg: rgba(74, 74, 217, 0.16);
+      --msg-mod-color: #e0e7ff;
+      --menu-bg: #151724;
+      --menu-border: #23273a;
+      --menu-hover: rgba(255, 255, 255, 0.05);
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      --chip-color: #cbd5e1;
+      --chip-hover-bg: #23273c;
+      --nav-hover: #23273c;
+      --danger: #ef4444;
+      --danger-bg: rgba(239, 68, 68, 0.12);
+      --success: #10b981;
+      --success-bg: rgba(16, 185, 129, 0.12);
+      --warning: #f59e0b;
+      --warning-bg: rgba(245, 158, 11, 0.12);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        color-scheme: light;
+        --bg: #f4f5fb;
+        --card-bg: #ffffff;
+        --card-bg-2: #f8f9fe;
+        --card-bg-3: #ffffff;
+        --input-bg: #ffffff;
+        --border-color: #e2e8f0;
+        --border-glow: rgba(91, 91, 240, 0.35);
+        --accent: #5b5bf0;
+        --accent-hover: #4a4ad9;
+        --text: #0f172a;
+        --text-muted: #64748b;
+        --header-bg: rgba(255, 255, 255, 0.88);
+        --hero-gradient: linear-gradient(135deg, #0f172a 30%, #5b5bf0 100%);
+        --msg-user-bg: #f1f5f9;
+        --msg-mod-bg: rgba(91, 91, 240, 0.08);
+        --msg-mod-color: #312e81;
+        --menu-bg: #ffffff;
+        --menu-border: #e2e8f0;
+        --menu-hover: #f1f5f9;
+        --shadow: 0 8px 24px rgba(20, 24, 50, 0.08);
+        --chip-color: #475569;
+        --chip-hover-bg: #e2e8f0;
+        --nav-hover: #e2e8f0;
+        --danger: #dc2626;
+        --danger-bg: #fee2e2;
+        --success: #16a34a;
+        --success-bg: #dcfce7;
+        --warning: #d97706;
+        --warning-bg: #fef3c7;
+      }
+    }
+
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg: #f4f5fb;
+      --card-bg: #ffffff;
+      --card-bg-2: #f8f9fe;
+      --card-bg-3: #ffffff;
+      --input-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --border-glow: rgba(91, 91, 240, 0.35);
+      --accent: #5b5bf0;
+      --accent-hover: #4a4ad9;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --header-bg: rgba(255, 255, 255, 0.88);
+      --hero-gradient: linear-gradient(135deg, #0f172a 30%, #5b5bf0 100%);
+      --msg-user-bg: #f1f5f9;
+      --msg-mod-bg: rgba(91, 91, 240, 0.08);
+      --msg-mod-color: #312e81;
+      --menu-bg: #ffffff;
+      --menu-border: #e2e8f0;
+      --menu-hover: #f1f5f9;
+      --shadow: 0 8px 24px rgba(20, 24, 50, 0.08);
+      --chip-color: #475569;
+      --chip-hover-bg: #e2e8f0;
+      --nav-hover: #e2e8f0;
+      --danger: #dc2626;
+      --danger-bg: #fee2e2;
+      --success: #16a34a;
+      --success-bg: #dcfce7;
+      --warning: #d97706;
+      --warning-bg: #fef3c7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+    body {
+      background-color: var(--bg);
+      background-image: var(--bg-mesh);
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html[dir="rtl"] { text-align: right; }
+    html[dir="rtl"] .support-header { text-align: right; }
+    html[dir="rtl"] .form-label { text-align: right; }
+    html[dir="rtl"] .card-title { text-align: right; }
+    html[dir="rtl"] .card-subtitle { text-align: right; }
+    html[dir="rtl"] .me-text { text-align: left; }
+    html[dir="rtl"] .user-menu { right: auto; left: 0; transform-origin: top left; }
+    html[dir="rtl"] .menu-item { text-align: right; }
+    html[dir="rtl"] .msg-bubble.user { border-bottom-right-radius: 14px; border-bottom-left-radius: 4px; align-self: flex-start; }
+    html[dir="rtl"] .msg-bubble.moderator { border-bottom-left-radius: 14px; border-bottom-right-radius: 4px; align-self: flex-end; }
+
+    /* Standard ShareWeb Glass Header */
+    .support-header {
+      background: var(--header-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 14px 28px;
+      padding-top: max(14px, env(safe-area-inset-top, 0px));
+      padding-left: max(20px, env(safe-area-inset-left, 0px));
+      padding-right: max(20px, env(safe-area-inset-right, 0px));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      transition: opacity 0.15s ease;
+    }
+    .brand-group:hover { opacity: 0.9; }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .brand-title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2.5px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.2px;
+      box-shadow: 0 2px 6px rgba(74, 74, 217, 0.35);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Tactile Spring Navigation Buttons */
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--card-bg-2);
+      color: var(--text);
+      border: 1px solid var(--border-color);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: inherit;
+      text-decoration: none;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s ease;
+      cursor: pointer;
+    }
+
+    .nav-btn:hover {
+      background: var(--nav-hover);
+      border-color: var(--border-glow);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-btn:active {
+      transform: scale(0.97);
+    }
+
+    .nav-btn.primary {
+      background: var(--accent);
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(74, 74, 217, 0.3);
+    }
+
+    .nav-btn.primary:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 4px 14px rgba(74, 74, 217, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .nav-btn.primary:active {
+      transform: scale(0.97);
+    }
+
+    .container {
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 36px 24px 60px;
+      padding-bottom: max(60px, env(safe-area-inset-bottom, 0px));
+      padding-left: max(16px, env(safe-area-inset-left, 0px));
+      padding-right: max(16px, env(safe-area-inset-right, 0px));
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .hero-title {
+      font-size: clamp(26px, 4vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      background: var(--hero-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    /* Standard ShareWeb Cards */
+    .glass-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 26px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+    }
+
+    .card-subtitle {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text);
+      padding: 11px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(74, 74, 217, 0.25);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .quick-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .chip-btn {
+      background: var(--card-bg-2);
+      border: 1px solid var(--border-color);
+      color: var(--chip-color);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .chip-btn:hover {
+      border-color: var(--accent);
+      background: var(--chip-hover-bg);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .chip-btn:active {
+      transform: scale(0.97);
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 14.5px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 10px rgba(74, 74, 217, 0.35);
+      transition: background 0.15s ease, transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .submit-btn:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 4px 16px rgba(74, 74, 217, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .submit-btn:active {
+      transform: scale(0.97);
+    }
+
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    /* Global utility */
+    .hidden { display: none !important; }
+
+    /* Alert Banner */
+    .alert-banner {
+      padding: 14px 18px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13.5px;
+    }
+    .alert-banner.success {
+      background: var(--success-bg);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--success);
+    }
+
+    /* Suspension Appeal Banner */
+    .suspension-banner {
+      margin-bottom: 24px;
+      padding: 18px 20px;
+      border-radius: 14px;
+      background: var(--danger-bg);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      animation: bannerSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes bannerSlideIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Ticket Thread / Accordion */
+    .ticket-card {
+      background: var(--card-bg-2);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      content-visibility: auto;
+      contain-intrinsic-size: auto 70px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .ticket-card:hover {
+      border-color: var(--border-glow);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+    .ticket-card.has-unread {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+
+    .ticket-header {
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      gap: 14px;
+      transition: background 0.15s ease;
+    }
+    .ticket-header:hover {
+      background: var(--menu-hover);
+    }
+
+    .ticket-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .ticket-subject {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .ticket-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .ticket-badges {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .ticket-badges svg {
+      color: var(--text-muted);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .ticket-card:has(.ticket-body.open) .ticket-badges svg {
+      transform: rotate(180deg);
+    }
+
+    .ticket-body {
+      padding: 0 20px 20px;
+      border-top: 1px solid var(--border-color);
+      display: none;
+      background: var(--card-bg-3);
+      animation: ticketBodyIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .ticket-body.open {
+      display: block;
+    }
+
+    @keyframes ticketBodyIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .messages-stream {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 16px 0;
+      max-height: 420px;
+      overflow-y: auto;
+    }
+
+    .msg-bubble {
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-size: 13.5px;
+      line-height: 1.5;
+      max-width: 82%;
+      word-break: break-word;
+      white-space: pre-wrap;
+    }
+
+    .msg-bubble.user {
+      align-self: flex-start;
+      background: var(--msg-user-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text);
+      border-bottom-left-radius: 4px;
+    }
+
+    .msg-bubble.moderator {
+      align-self: flex-end;
+      background: var(--msg-mod-bg);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      color: var(--text);
+      border-bottom-right-radius: 4px;
+    }
+
+    .msg-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .reply-form {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    .form-reply-textarea {
+      flex: 1;
+      min-height: 42px;
+      max-height: 120px;
+      resize: vertical;
+      font-family: inherit;
+      font-size: 13.5px;
+      line-height: 1.4;
+      padding: 10px 14px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 32px 16px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* Pill Badges */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 2.5px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .pill-open { background: var(--warning-bg); color: var(--warning); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .pill-progress { background: rgba(74, 74, 217, 0.16); color: #818cf8; border: 1px solid rgba(74, 74, 217, 0.35); }
+    .pill-resolved { background: var(--success-bg); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .pill-unread { background: var(--accent); color: #fff; box-shadow: 0 0 8px rgba(74, 74, 217, 0.6); }
+
+    /* App-style User Profile Header (.me) */
+    .me { display: flex; align-items: center; gap: 12px; }
+    .avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--card-bg-2);
+      border: 2px solid var(--border-color);
+    }
+    .initials {
+      display: inline-grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 13px;
+      color: #fff;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      flex: none;
+    }
+    .me-text { text-align: right; }
+    .me-name { font-weight: 600; font-size: 13.5px; color: var(--text); }
+    .me-email { font-size: 11.5px; color: var(--text-muted); }
+
+    .menu-wrap { position: relative; }
+    .menu-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 12px;
+      transition: background 0.15s ease, transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .menu-btn:hover { background: var(--menu-hover); }
+    .menu-btn:active { transform: scale(0.96); }
+    .chev { color: var(--text-muted); font-size: 11px; transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
+    .menu-btn.open .chev { transform: rotate(180deg); }
+
+    .user-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 240px;
+      background: var(--menu-bg);
+      border: 1px solid var(--menu-border);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 6px;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transform-origin: top right;
+      animation: menuPop 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes menuPop {
+      from { opacity: 0; transform: scale(0.94) translateY(-6px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .menu-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 6px;
+    }
+    .menu-header .avatar,
+    .menu-header .initials { width: 36px; height: 36px; }
+    .menu-name { font-weight: 600; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text); }
+    .menu-email { font-size: 12px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 170px; }
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      background: none;
+      padding: 10px 12px;
+      border-radius: 9px;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      text-decoration: none;
+      line-height: 1.4;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .menu-item svg {
+      flex: none;
+      opacity: 0.8;
+      stroke: currentColor;
+      transition: opacity 0.15s ease;
+    }
+    .menu-item:hover svg { opacity: 1; }
+    .menu-item:hover { background: var(--menu-hover); }
+    .menu-item.logout { color: #f87171; font-weight: 500; }
+    .menu-item.logout svg { opacity: 0.85; }
+    .menu-item.logout:hover { background: var(--danger-bg); }
+
+    @media (max-width: 600px) {
+      .me-text { display: none; }
+      .me { gap: 6px; }
+      .menu-btn .avatar,
+      .menu-btn .initials { width: 32px; height: 32px; font-size: 11px; }
+      .support-header {
+        padding: 10px 16px;
+        padding-top: max(10px, env(safe-area-inset-top, 0px));
+        padding-left: max(14px, env(safe-area-inset-left, 0px));
+        padding-right: max(14px, env(safe-area-inset-right, 0px));
+      }
+      .brand-group { gap: 8px; }
+      .brand-badge { font-size: 10px; padding: 1.5px 6px; }
+      .header-actions { gap: 8px; }
+      .nav-btn { padding: 6px 10px; font-size: 12px; }
+    }
+
+    @media (max-width: 380px) {
+      .support-header {
+        padding: 8px 10px;
+        padding-left: max(8px, env(safe-area-inset-left, 0px));
+        padding-right: max(8px, env(safe-area-inset-right, 0px));
+      }
+      .brand-title { font-size: 15px; }
+      .brand-badge { display: none; }
+      .brand-logo { width: 28px; height: 28px; }
+      .nav-btn { padding: 5px 8px; font-size: 11.5px; }
+    }
+
+    .btn-google-support {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: var(--card-bg-2);
+      border: 1px solid var(--border-color);
+      color: var(--text);
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: inherit;
+      text-decoration: none;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s ease;
+      cursor: pointer;
+      margin-bottom: 4px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .btn-google-support:hover {
+      background: var(--nav-hover);
+      border-color: var(--border-glow);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .btn-google-support:active {
+      transform: scale(0.97);
+    }
+
+    @media (pointer: coarse), (max-width: 900px) {
+      .form-input, .form-select, .form-textarea, input, select, textarea {
+        font-size: 16px !important;
+      }
+    }
+  </style>
+
+  <!-- Global Loader Critical CSS matching rest of ShareWeb -->
+  <style id="global-loader-crit-css">
+    #global-page-loader {
+      position: fixed; inset: 0; z-index: 99999999;
+      background: #090a10;
+      color: #f8fafc;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) #global-page-loader {
+        background: #f4f5fb;
+        color: #1e293b;
+      }
+      :root:not([data-theme="dark"]) #global-page-loader .loader-status-text {
+        color: #64748b;
+      }
+    }
+    :root[data-theme="light"] #global-page-loader {
+      background: #f4f5fb !important;
+      color: #1e293b !important;
+    }
+    :root[data-theme="light"] #global-page-loader .loader-status-text {
+      color: #64748b !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Global Page Loader (Zero-FOUC Barrier) -->
+  <div id="global-page-loader" class="page-loading-barrier" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-logo-wrap">
+        <img src="/icons/icon-512.png" alt="ShareWeb" class="loader-logo-img" fetchpriority="high" decoding="async" />
+      </div>
+      <div class="loader-spinner"></div>
+      <span class="loader-status-text" data-i18n="loading">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="support-header">
+    <a href="/" class="brand-group">
+      <img src="/icons/icon-192.png" alt="ShareWeb" class="brand-logo" decoding="async" />
+      <span class="brand-title" data-i18n="brandTitle">ShareWeb</span>
+      <span class="brand-badge" data-i18n="supportTitle">Support Desk</span>
+    </a>
+    <div class="header-actions" id="support-header-actions">
+      <!-- App Design Profile Widget -->
+      <div class="me hidden" id="support-user-tag">
+        <div class="me-text">
+          <div id="support-me-name" class="me-name">—</div>
+          <div id="support-me-email" class="me-email">—</div>
+        </div>
+        <div class="menu-wrap">
+          <button id="support-menu-btn" class="menu-btn" aria-haspopup="true" aria-label="Account menu" title="Account" data-i18n-title="stgAccount">
+            <span id="support-avatar-wrap"></span>
+            <span class="chev">▾</span>
+          </button>
+          <div id="support-user-menu" class="user-menu hidden">
+            <div class="menu-header">
+              <span id="support-menu-avatar"></span>
+              <div>
+                <div id="support-dropdown-name" class="menu-name">—</div>
+                <div id="support-dropdown-email" class="menu-email">—</div>
+              </div>
+            </div>
+            <a href="/app" id="support-dropdown-app-link" class="menu-item" style="text-decoration:none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span data-i18n="navStartSharing">Open ShareWeb App</span>
+            </a>
+            <button id="support-logout-btn" class="menu-item logout hidden">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+              <span data-i18n="navLogout">Sign Out</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <a href="/app" id="header-open-app-btn" class="nav-btn primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span data-i18n="navStartSharing">Open App</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="hero-section">
+      <h1 class="hero-title" data-i18n="supportHeroTitle">How can we help you?</h1>
+      <p class="hero-subtitle" data-i18n="supportSubtitle">Submit an inquiry directly to our moderation and engineering team. You will receive replies here and via notifications inside the app.</p>
+    </div>
+
+    <!-- Alert Confirmation -->
+    <div id="ticket-success-alert" class="alert-banner success hidden">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      <div data-i18n="ticketSuccessAlert">Your inquiry has been sent to our moderators. You can track updates and replies below!</div>
+    </div>
+
+    <!-- Account Suspension Appeal Banner (Shown only for suspended users) -->
+    <div id="suspension-appeal-banner" class="suspension-banner hidden">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <div>
+        <div style="font-weight: 700; font-size: 15px; margin-bottom: 4px; color: #f87171;" data-i18n="suspensionBannerTitle">Account Suspended</div>
+        <p style="font-size: 13.5px; line-height: 1.5; margin: 0; color: var(--text-muted);" id="suspension-reason-text">
+          Your ShareWeb account has been suspended by an administrator. While your account is suspended, access to ShareWeb (/app and sharing rooms) is disabled. You may communicate with moderators and submit an appeal inquiry below.
+        </p>
+      </div>
+    </div>
+
+    <!-- 0. Sign In Prompt Card (Shown if unauthenticated) -->
+    <div id="support-login-section" class="glass-card hidden" style="max-width: 520px; margin: 0 auto 24px; text-align: center;">
+      <h2 class="card-title" style="justify-content: center; margin-bottom: 8px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span data-i18n="supportLoginTitle">Sign In Required</span>
+      </h2>
+      <p class="card-subtitle" style="margin-bottom: 22px;" data-i18n="supportLoginSubtitle">
+        Please sign in to your ShareWeb account to submit support inquiries, track moderator replies, or appeal an account suspension.
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; max-width: 340px; margin: 0 auto;">
+        <a href="/login?returnTo=%2Fsupport" id="support-main-login-btn" class="submit-btn" style="text-decoration: none; justify-content: center; padding: 12px 18px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          <span data-i18n="supportSignInBtn">Sign In with ShareWeb</span>
+        </a>
+        <a href="/auth/google?returnTo=/support" target="_top" class="btn-google-support" id="support-google-btn">
+          <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+            <path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/>
+            <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+            <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
+            <path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.1 5.7l6.2 5.2C40.9 36.7 44 31 44 24c0-1.3-.1-2.6-.4-3.9z"/>
+          </svg>
+          <span data-i18n="supportGoogleBtn">Sign in with Google</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="grid-layout" id="support-main-grid">
+      <!-- 1. Submit Ticket Form -->
+      <div class="glass-card">
+        <h2 class="card-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span data-i18n="supportNewInquiry">Open a New Inquiry</span>
+        </h2>
+        <p class="card-subtitle" data-i18n="supportNewInquirySub">Moderators review inquiries and respond directly through this portal.</p>
+
+        <form id="support-form">
+          <div class="form-group">
+            <label class="form-label" for="ticket-subject"><span data-i18n="supportSubjectLabel">Subject</span></label>
+            <input type="text" id="ticket-subject" class="form-input" placeholder="e.g. Cannot connect on mobile hotspot" data-i18n-ph="supportSubjectPh" required />
+            <div class="quick-chips">
+              <button type="button" class="chip-btn" data-subject="Suspension Appeal" data-i18n="chipSuspensionAppeal">Suspension Appeal</button>
+              <button type="button" class="chip-btn" data-subject="Transfer Connection Issue" data-i18n="chipTransferIssue">Transfer Connection Issue</button>
+              <button type="button" class="chip-btn" data-subject="Account / Login Assistance" data-i18n="chipAccountHelp">Account / Login Assistance</button>
+              <button type="button" class="chip-btn" data-subject="Security or Bug Report" data-i18n="chipSecurityBug">Security or Bug Report</button>
+              <button type="button" class="chip-btn" data-subject="Feature Suggestion" data-i18n="chipFeatureSuggest">Feature Suggestion</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ticket-email" data-i18n="supportAccountEmailLabel">Account Email</label>
+            <input type="email" id="ticket-email" class="form-input" placeholder="you@example.com" data-i18n-ph="supportEmailPh" readonly required style="opacity: 0.8; cursor: not-allowed;" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ticket-message" data-i18n="supportMsgLabel">Message / Description</label>
+            <textarea id="ticket-message" class="form-textarea" placeholder="Provide as much detail as possible (operating system, browser, what happened)..." data-i18n-ph="supportMsgPh" required></textarea>
+          </div>
+
+          <button type="submit" id="ticket-submit-btn" class="submit-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <span data-i18n="supportSendBtn">Send Inquiry to Staff</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- 2. My Inquiries & Conversation View -->
+      <div class="glass-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <h2 class="card-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span data-i18n="supportMyInquiries">Your Inquiries & Moderator Replies</span>
+          </h2>
+          <button id="refresh-tickets-btn" class="nav-btn" style="padding: 4px 10px; font-size: 12px;" data-i18n="supportRefreshBtn">Refresh</button>
+        </div>
+        <p class="card-subtitle" data-i18n="supportMyInquiriesSub">Click on any inquiry to view responses or send follow-up replies.</p>
+
+        <div id="tickets-container">
+          <div class="empty-state" data-i18n="supportLoading">Loading your inquiries...</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/support.js"></script>
+</body>
+</html>

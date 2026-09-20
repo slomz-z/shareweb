@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="HandheldFriendly" content="true" />
+  <title data-i18n="termsTitle">Terms of Service — ShareWeb</title>
+  <link rel="canonical" href="https://shareweb.slomz.is-a.dev/terms" />
+  <meta name="description" content="ShareWeb Terms of Service. Acceptable use policies, peer-to-peer file transmission terms, and community guidelines." />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/lock-frame.js" defer></script>
+  <script src="/page-i18n.js" defer></script>
+  <script type="speculationrules">
+  {
+    "prefetch": [
+      {
+        "source": "list",
+        "urls": ["/", "/app", "/privacy", "/support"],
+        "eagerness": "moderate"
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <style>
+    .policy-page { max-width: 900px; margin: 0 auto; padding: clamp(24px, 4vw, 56px) clamp(16px, 3vw, 32px); }
+    .policy-header { margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-soft); text-decoration: none; font-size: 14px; margin-bottom: 16px; transition: color 0.15s; }
+    .back-link:hover { color: var(--primary); }
+    .policy-header h1 { margin: 0; font-size: clamp(30px, 4vw, 40px); font-weight: 800; letter-spacing: -0.5px; }
+    .policy-meta { margin: 12px 0 0; color: var(--text-soft); font-size: 14px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+    .policy-meta strong { color: var(--text); }
+    .policy-content { line-height: 1.8; font-size: 15px; }
+    .policy-content section { margin-bottom: 36px; }
+    .policy-content h2 { font-size: clamp(19px, 2.2vw, 22px); font-weight: 700; margin: 0 0 14px; color: var(--text); padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .policy-content h3 { font-size: 16px; font-weight: 600; margin: 20px 0 10px; color: var(--text); }
+    .policy-content p { margin: 0 0 14px; color: var(--text-soft); line-height: 1.75; }
+    .policy-content ul { margin: 0 0 14px; padding-left: 22px; }
+    .policy-content li { margin-bottom: 8px; color: var(--text-soft); line-height: 1.7; }
+    .policy-content strong { color: var(--text); font-weight: 600; }
+    .policy-content a { color: var(--primary); text-decoration: none; }
+    .policy-content a:hover { text-decoration: underline; }
+    .policy-content .highlight-box { background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 12px; padding: 18px 20px; margin: 18px 0; }
+    .policy-content .highlight-box p { margin: 0; color: var(--text); }
+    .policy-footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; color: var(--text-soft); font-size: 13.5px; }
+    html[dir="rtl"] .policy-page { text-align: right; }
+    html[dir="rtl"] .policy-content ul { padding-left: 0; padding-right: 22px; }
+    html[dir="rtl"] .policy-meta { flex-direction: row-reverse; }
+
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-in { animation: fadeSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .policy-content section { opacity: 0; animation: fadeSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .policy-content section:nth-child(1) { animation-delay: 0.04s; }
+    .policy-content section:nth-child(2) { animation-delay: 0.08s; }
+    .policy-content section:nth-child(3) { animation-delay: 0.12s; }
+    .policy-content section:nth-child(4) { animation-delay: 0.16s; }
+    .policy-content section:nth-child(5) { animation-delay: 0.20s; }
+    .policy-content section:nth-child(6) { animation-delay: 0.24s; }
+    .policy-content section:nth-child(7) { animation-delay: 0.28s; }
+    .policy-content section:nth-child(8) { animation-delay: 0.32s; }
+    .policy-content section:nth-child(9) { animation-delay: 0.36s; }
+    .policy-content section:nth-child(10) { animation-delay: 0.40s; }
+    .policy-footer { opacity: 0; animation: fadeSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards; }
+
+    @media (prefers-reduced-motion: reduce) { .animate-in, .policy-content section, .policy-footer { animation: none; opacity: 1; } }
+  </style>
+  <style id="global-loader-crit-css">
+    #global-page-loader {
+      position: fixed; inset: 0; z-index: 99999999;
+      background: #090a10;
+      color: #f8fafc;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) #global-page-loader {
+        background: #f4f5fb;
+        color: #1e293b;
+      }
+      :root:not([data-theme="dark"]) #global-page-loader .loader-status-text {
+        color: #64748b;
+      }
+    }
+    :root[data-theme="light"] #global-page-loader {
+      background: #f4f5fb !important;
+      color: #1e293b !important;
+    }
+    :root[data-theme="light"] #global-page-loader .loader-status-text {
+      color: #64748b !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Global Page Loader (Zero-FOUC Barrier) -->
+  <div id="global-page-loader" class="page-loading-barrier" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-logo-wrap">
+        <img src="/icons/icon-512.png" alt="ShareWeb" class="loader-logo-img" fetchpriority="high" decoding="async" />
+      </div>
+      <div class="loader-spinner"></div>
+      <span class="loader-status-text" data-i18n="loading">Loading...</span>
+    </div>
+  </div>
+  <main class="policy-page">
+    <header class="policy-header animate-in">
+      <a href="/" class="btn-corner-back" id="policy-back" aria-label="Back" data-i18n-title="back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        <span data-i18n="back">Back</span>
+      </a>
+      <h1 data-i18n="termsTitle">Terms of Service</h1>
+      <div class="policy-meta">
+        <div><strong data-i18n="policyEffective">Effective:</strong> <span data-i18n="policyEffectiveDate">August 27, 2026</span></div>
+        <div><strong data-i18n="policyVersion">Version:</strong> <span data-i18n="policyVersionNum">2.0</span></div>
+        <div><strong data-i18n="policyLastUpdated">Last Updated:</strong> <span data-i18n="policyLastUpdatedDate">August 27, 2026</span></div>
+      </div>
+    </header>
+
+    <article class="policy-content">
+      <!-- Section 1 -->
+      <section>
+        <h2 data-i18n="termsSec1Title">1. Agreement to Terms & Binding Effect</h2>
+        <p data-i18n="termsSec1P1">These Terms of Service ("Terms") constitute a legally binding agreement between you and the operator of ShareWeb ("we", "us", "our") governing your access to and use of the ShareWeb file transfer platform, website, APIs, and associated services.</p>
+        <p data-i18n-html="termsSec1P2">By creating an account, accessing, or transferring files through ShareWeb, you explicitly agree to be bound by these Terms and our <a href="/privacy">Privacy Policy</a>. Material revisions will be announced 30 days in advance via in-app notifications.</p>
+      </section>
+
+      <!-- Section 2 -->
+      <section>
+        <h2 data-i18n="termsSec2Title">2. Service Architecture & Zero-Knowledge Philosophy</h2>
+        <p data-i18n="termsSec2P1">ShareWeb provides fast, direct, and private file transfer capabilities with two primary operational modes:</p>
+        <ul>
+          <li data-i18n="termsSec2Li1">Direct Local P2P: When devices share a local network, files transfer directly over WebRTC data channels with DTLS encryption without passing through intermediary storage.</li>
+          <li data-i18n="termsSec2Li2">Encrypted Server Relay: When peers reside on different networks, files are client-side encrypted and relayed via server memory buffers.</li>
+        </ul>
+        <div class="highlight-box">
+          <p data-i18n="termsSec2Box">No Cloud Storage: ShareWeb is an instant transfer conduit, not a permanent cloud storage vault. Relayed file chunks are purged from server buffers immediately upon download completion or after 7 days of inactivity. Metadata in your transfer history is retained for 30 days.</p>
+        </div>
+      </section>
+
+      <!-- Section 3 -->
+      <section>
+        <h2 data-i18n="termsSec3Title">3. Eligibility, Authentication & Security</h2>
+        <p data-i18n="termsSec3P1">You must be at least 13 years of age (16 years in the EEA and UK) to use ShareWeb.</p>
+        <p data-i18n="termsSec3P2">Authentication is supported via Google OAuth 2.0 or verified Email/Password. You are solely responsible for safeguarding your login credentials.</p>
+        <p data-i18n="termsSec3P3">To prevent brute-force attacks and abuse, ShareWeb enforces automated device-level rate limiting and exponential lockout timers (escalating from 5 to 40+ minutes) on repeated authentication failures.</p>
+      </section>
+
+      <!-- Section 4 -->
+      <section>
+        <h2 data-i18n="termsSec4Title">4. End-to-End Encryption & Key Custody</h2>
+        <p data-i18n="termsSec4P1">All transfers utilize client-side AES-256-GCM encryption with per-file keys and ECDH key agreement. Your encryption keys are derived from your credentials in your browser.</p>
+        <div class="highlight-box">
+          <p data-i18n="termsSec4Box">Zero-Knowledge Principle: ShareWeb never possesses or receives your unencrypted file plaintext or master decryption keys. You hold sole custody of your encryption keys; lost passwords cannot be decrypted or reset by operators.</p>
+        </div>
+      </section>
+
+      <!-- Section 5 -->
+      <section>
+        <h2 data-i18n="termsSec5Title">5. Acceptable Use Policy & Prohibited Conduct</h2>
+        <p data-i18n="termsSec5P1">You agree to use ShareWeb strictly for lawful purposes. You shall not transmit, upload, or facilitate the distribution of:</p>
+        <ul>
+          <li data-i18n="termsSec5Li1">Child sexual abuse material (CSAM), non-consensual imagery, or violent extremism.</li>
+          <li data-i18n="termsSec5Li2">Malware, ransomware, keyloggers, viruses, or unauthorized spyware.</li>
+          <li data-i18n="termsSec5Li3">Copyright-infringing media, trade secrets, or pirated proprietary material without authorization.</li>
+          <li data-i18n="termsSec5Li4">Automated crawling, network flooding, DDoS attacks, or exploitation of relay infrastructure.</li>
+        </ul>
+      </section>
+
+      <!-- Section 6 -->
+      <section>
+        <h2 data-i18n="termsSec6Title">6. Privacy-Preserving AI Safety & Moderation</h2>
+        <p data-i18n="termsSec6P1">To preserve user privacy while enforcing community safety, files are evaluated locally inside your browser using TensorFlow.js AI models before transmission.</p>
+        <p data-i18n="termsSec6P2">Files never leave your local device during safety evaluation. Automated policy triggers enforce temporary 5-minute moderation cooldowns on prohibited content.</p>
+      </section>
+
+      <!-- Section 7 -->
+      <section>
+        <h2 data-i18n="termsSec7Title">7. Intellectual Property & User Ownership</h2>
+        <p data-i18n="termsSec7P1">You retain 100% ownership and intellectual property rights in all files and media transmitted through ShareWeb.</p>
+        <p data-i18n="termsSec7P2">You grant ShareWeb solely the limited technical license necessary to transmit, buffer, and deliver files to your chosen recipients.</p>
+      </section>
+
+      <!-- Section 8 -->
+      <section>
+        <h2 data-i18n="termsSec8Title">8. Third-Party Integrations & AI Tools</h2>
+        <p data-i18n="termsSec8P1">ShareWeb may provide optional integrations with third-party identity providers (Google OAuth), transactional email providers, and Model Context Protocol (MCP) AI assistants.</p>
+        <p data-i18n="termsSec8P2">Your use of external tools is subject to their respective terms and privacy policies.</p>
+      </section>
+
+      <!-- Section 9 -->
+      <section>
+        <h2 data-i18n="termsSec9Title">9. Disclaimers & Limitation of Liability</h2>
+        <div class="highlight-box">
+          <p data-i18n="termsSec9Box">ShareWeb is provided on an 'AS-IS' and 'AS-AVAILABLE' basis without warranties of any kind. Under no circumstances shall the Operator be liable for indirect, incidental, or consequential damages, data loss, or cryptographic failures resulting from user error.</p>
+        </div>
+      </section>
+
+      <!-- Section 10 -->
+      <section>
+        <h2 data-i18n="termsSec10Title">10. Account Termination, Support & Appeals</h2>
+        <p data-i18n="termsSec10P1">You may request account and data termination at any time. Accounts violating safety policies may be suspended by moderators.</p>
+        <p data-i18n-html="termsSec10P2">Suspended accounts and users seeking dispute resolution or inquiries can submit appeals directly through our Support Desk at <a href="/support">/support</a>.</p>
+      </section>
+    </article>
+
+    <footer class="policy-footer">
+      <p data-i18n="brandFooter">ShareWeb — File sharing, simplified. &copy; 2026</p>
+    </footer>
+  </main>
+  <script src="/policy.js"></script>
+</body>
+</html>

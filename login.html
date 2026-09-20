@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="HandheldFriendly" content="true" />
+  <title>Sign in — ShareWeb</title>
+  <link rel="canonical" href="https://shareweb.slomz.is-a.dev/login" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/lock-frame.js" defer></script>
+  <script src="/page-i18n.js" defer></script>
+  <script type="speculationrules">
+  {
+    "prefetch": [
+      {
+        "source": "list",
+        "urls": ["/", "/app", "/support", "/privacy", "/terms"],
+        "eagerness": "moderate"
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <meta name="description" content="Sign in or create a ShareWeb account to share files instantly with zero limits, end-to-end encryption, and 30-day transfer history." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shareweb.slomz.is-a.dev/login" />
+  <meta property="og:title" content="Sign in to ShareWeb" />
+  <meta property="og:description" content="Instant, secure file sharing with no file size limits." />
+  <meta property="og:image" content="https://shareweb.slomz.is-a.dev/icons/icon-512.png" />
+  <meta name="theme-color" content="#4a4ad9" />
+  <meta name="theme-color" content="#0e1017" media="(prefers-color-scheme: dark)" />
+  <style>
+    html[dir="rtl"] .login-view { text-align: right; }
+    html[dir="rtl"] .login-card { text-align: right; }
+    html[dir="rtl"] .features { text-align: right; padding: 0; }
+    html[dir="rtl"] .features li { padding: 8px 30px 8px 0; text-align: right; }
+    html[dir="rtl"] .features li::before { left: auto; right: 4px; }
+    html[dir="rtl"] .btn-corner-back { left: auto; right: 24px; flex-direction: row-reverse; }
+    html[dir="rtl"] .pw-requirements { text-align: right; }
+    html[dir="rtl"] .ea-links { flex-direction: row-reverse; }
+    html[dir="rtl"] .ea-show-pw { flex-direction: row-reverse; justify-content: flex-end; }
+
+    .hidden { display: none !important; }
+
+    /* Password Input Wrapper & Eye Toggle */
+    .pw-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .pw-input-wrapper .ea-input {
+      width: 100%;
+      padding-right: 44px;
+      margin-bottom: 0;
+    }
+    html[dir="rtl"] .pw-input-wrapper .ea-input {
+      padding-right: 14px;
+      padding-left: 44px;
+    }
+    .btn-toggle-eye {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      padding: 7px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--text-muted, #94a3b8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s, background-color 0.15s;
+      z-index: 2;
+    }
+    .btn-toggle-eye:hover {
+      color: var(--text, #f8fafc);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .btn-toggle-eye:focus-visible {
+      outline: 2px solid var(--accent, #6366f1);
+    }
+    html[dir="rtl"] .btn-toggle-eye {
+      right: auto;
+      left: 6px;
+    }
+
+    .user-badge-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding: 8px 14px;
+      background: var(--card-bg-2, rgba(255, 255, 255, 0.04));
+      border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+      border-radius: 12px;
+    }
+    .user-badge-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent, #6366f1);
+    }
+    .user-badge-info {
+      text-align: left;
+    }
+    html[dir="rtl"] .user-badge-info {
+      text-align: right;
+    }
+    .user-badge-name {
+      font-weight: 700;
+      font-size: 13.5px;
+      color: var(--text, #f8fafc);
+    }
+    .user-badge-email {
+      font-size: 12px;
+      color: var(--text-soft, #94a3b8);
+    }
+  </style>
+  <style id="global-loader-crit-css">
+    #global-page-loader {
+      position: fixed; inset: 0; z-index: 99999999;
+      background: #090a10;
+      color: #f8fafc;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) #global-page-loader {
+        background: #f4f5fb;
+        color: #1e293b;
+      }
+      :root:not([data-theme="dark"]) #global-page-loader .loader-status-text {
+        color: #64748b;
+      }
+    }
+    :root[data-theme="light"] #global-page-loader {
+      background: #f4f5fb !important;
+      color: #1e293b !important;
+    }
+    :root[data-theme="light"] #global-page-loader .loader-status-text {
+      color: #64748b !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Global Page Loader (Zero-FOUC Barrier) -->
+  <div id="global-page-loader" class="page-loading-barrier" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-logo-wrap">
+        <img src="/icons/icon-512.png" alt="ShareWeb" class="loader-logo-img" fetchpriority="high" decoding="async" />
+      </div>
+      <div class="loader-spinner"></div>
+      <span class="loader-status-text" data-i18n="loading">Loading...</span>
+    </div>
+  </div>
+  <section id="view-login" class="login-view">
+    <a href="/" id="login-back" class="btn-corner-back" aria-label="Back to home" data-i18n-title="btnBackHome">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      <span id="login-back-text" data-i18n="btnBackHome">Back to home</span>
+    </a>
+    <div class="login-card">
+      <img class="logo-img login" src="/icons/icon-512.png" alt="ShareWeb" decoding="async" />
+      <h1 data-i18n="brandTitle">ShareWeb</h1>
+      <p class="tagline" id="login-tagline" data-i18n="tagline">
+        Share files instantly with people you know.
+      </p>
+      <ul class="features" id="login-features">
+        <li id="feat-1" data-i18n="feat1">Automatically finds nearby devices</li>
+        <li id="feat-2" data-i18n="feat2">No file size limits and completely free</li>
+        <li id="feat-3" data-i18n="feat3">30-day history of everything you send and receive</li>
+      </ul>
+      <a href="/auth/google?returnTo=%2Fapp" target="_top" class="btn-google" id="btn-google-oauth">
+        <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+          <path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/>
+          <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/>
+          <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/>
+          <path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.1 5.7l6.2 5.2C40.9 36.7 44 31 44 24c0-1.3-.1-2.6-.4-3.9z"/>
+        </svg>
+        <span id="btn-google-text" data-i18n="signInGoogle">Sign in with Google</span>
+      </a>
+
+      <div class="divider" id="login-divider"><span id="divider-email-text" data-i18n="orWithEmail">or with email</span></div>
+
+      <div id="email-auth" class="email-auth">
+        <div class="ea-tabs" id="ea-tabs">
+          <button type="button" class="ea-tab active" id="ea-tab-login" data-ea-tab="login" data-i18n="tabLogin">Log in</button>
+          <button type="button" class="ea-tab" id="ea-tab-signup" data-ea-tab="signup" data-i18n="tabSignup">Create account</button>
+        </div>
+        <form id="step-email" class="ea-step" novalidate>
+          <input id="ea-email" class="ea-input" type="email" placeholder="Email address" data-i18n-ph="emailAddress" autocomplete="email" autofocus />
+          <button class="btn-primary btn-block" id="ea-btn-email" type="submit" data-i18n="continue">Continue</button>
+          <p id="ea-email-hint" class="ea-hint" data-i18n="emailHint">Enter the email you signed up with.</p>
+          <p id="ea-email-error" class="ea-error hidden"></p>
+        </form>
+
+        <div id="step-passkey" class="ea-step hidden">
+          <div id="ea-passkey-user-badge" class="user-badge-box">
+            <img id="ea-passkey-user-avatar" class="user-badge-avatar" src="/icons/icon-512.png" alt="Avatar" decoding="async" />
+            <div class="user-badge-info">
+              <div id="ea-passkey-user-name" class="user-badge-name"></div>
+              <div id="ea-passkey-user-email" class="user-badge-email"></div>
+            </div>
+          </div>
+          <div class="passkey-icon-wrap" style="display: flex; justify-content: center; margin: 16px 0 10px 0;">
+            <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--card-bg-2, rgba(255,255,255,0.06)); border: 1px solid var(--border-color, rgba(255,255,255,0.12)); display: flex; align-items: center; justify-content: center; color: var(--accent, #6366f1); box-shadow: 0 4px 20px rgba(99,102,241,0.15);">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 2l-2 2m-1.5 1.5L14 9M3 21l3-3m1.5-1.5L11 13m-2-2a5 5 0 1 1 7.07-7.07 5 5 0 0 1-7.07 7.07z"/>
+                <path d="M15.5 8.5l.01.01"/>
+              </svg>
+            </div>
+          </div>
+          <p class="ea-hint" id="ea-passkey-hint" data-i18n="passkeyPrompt" style="text-align: center; margin-bottom: 18px;">Use Touch ID, Face ID, or Windows Hello to sign in.</p>
+          <button class="btn-primary btn-block" id="ea-btn-passkey" type="button" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 004 11m0 0a8 8 0 001.328 4.417m0 0c.934 1.776 2.25 3.321 3.844 4.502"/>
+            </svg>
+            <span data-i18n="passkeySignIn">Sign in with Passkey</span>
+          </button>
+          <p id="ea-passkey-error" class="ea-error hidden"></p>
+          <div class="ea-links" style="margin-top: 14px;">
+            <button type="button" id="ea-passkey-use-pw" class="link" data-i18n="passkeyUsePw">Use password instead</button>
+            <button type="button" id="ea-passkey-back" class="link" data-i18n="differentEmail">Use a different email</button>
+          </div>
+        </div>
+
+        <form id="step-password" class="ea-step hidden" novalidate>
+          <div id="ea-pw-user-badge" class="user-badge-box hidden">
+            <img id="ea-pw-user-avatar" class="user-badge-avatar" src="/icons/icon-512.png" alt="Avatar" decoding="async" />
+            <div class="user-badge-info">
+              <div id="ea-pw-user-name" class="user-badge-name"></div>
+              <div id="ea-pw-user-email" class="user-badge-email"></div>
+            </div>
+          </div>
+          <p class="ea-target" id="ea-pw-target"></p>
+          <div class="pw-input-wrapper">
+            <input id="ea-password" class="ea-input" type="password" placeholder="Password" data-i18n-ph="password" autocomplete="current-password" />
+            <button type="button" class="btn-toggle-eye" data-target="ea-password" aria-label="Toggle password visibility" data-i18n-title="showPassword" title="Show password">
+              <svg class="eye-open-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="eye-off-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </div>
+          <button class="btn-primary btn-block" id="ea-btn-password" type="submit" style="margin-top: 14px;" data-i18n="tabLogin">Log in</button>
+          <p id="ea-pw-error" class="ea-error hidden"></p>
+          <div class="ea-links">
+            <button type="button" id="ea-forgot" class="link" data-i18n="forgotPassword">Forgot password?</button>
+            <button type="button" id="ea-back-email" class="link" data-i18n="differentEmail">Use a different email</button>
+          </div>
+        </form>
+
+        <div id="step-create-passkey" class="ea-step hidden">
+          <div class="passkey-icon-wrap" style="display: flex; justify-content: center; margin: 12px 0 16px 0;">
+            <div style="width: 68px; height: 68px; border-radius: 50%; background: var(--card-bg-2, rgba(255,255,255,0.06)); border: 1px solid var(--border-color, rgba(255,255,255,0.15)); display: flex; align-items: center; justify-content: center; color: var(--accent, #6366f1); box-shadow: 0 4px 24px rgba(99,102,241,0.25);">
+              <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 004 11m0 0a8 8 0 001.328 4.417m0 0c.934 1.776 2.25 3.321 3.844 4.502"/>
+              </svg>
+            </div>
+          </div>
+          <h3 style="text-align: center; font-size: 1.15rem; font-weight: 700; margin-bottom: 6px;" data-i18n="passkeyCreateTitle">Create a Passkey for Faster Login</h3>
+          <p class="ea-hint" style="text-align: center; margin-bottom: 20px;" data-i18n="passkeyCreateDesc">Next time, sign in instantly on this device using Touch ID, Face ID, or Windows Hello — without typing your password.</p>
+          <button class="btn-primary btn-block" id="ea-btn-create-passkey" type="button" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 2l-2 2m-1.5 1.5L14 9M3 21l3-3m1.5-1.5L11 13m-2-2a5 5 0 1 1 7.07-7.07 5 5 0 0 1-7.07 7.07z"/>
+            </svg>
+            <span data-i18n="passkeyCreateBtn">Create Passkey</span>
+          </button>
+          <button class="btn-ghost btn-block" id="ea-btn-skip-passkey" type="button" style="margin-top: 8px;" data-i18n="passkeySkip">Skip for now</button>
+          <p id="ea-create-passkey-error" class="ea-error hidden"></p>
+        </div>
+
+        <form id="step-code" class="ea-step hidden" novalidate>
+          <p class="ea-hint" id="ea-code-hint-wrap"><span data-i18n="emailedCodeTo">We emailed a 6-digit code to</span> <b id="ea-code-email"></b>.</p>
+          <input id="ea-code" class="ea-input ea-code-input" type="text" inputmode="numeric" maxlength="6" placeholder="6-digit code" data-i18n-ph="digitCode" />
+          <button class="btn-primary btn-block" id="ea-btn-code" type="submit" data-i18n="verify">Verify</button>
+          <p id="ea-code-error" class="ea-error hidden"></p>
+          <div class="ea-links">
+            <button type="button" id="ea-resend" class="link" data-i18n="resendCode">Resend code</button>
+            <button type="button" id="ea-code-back" class="link" data-i18n="back">Back</button>
+          </div>
+        </form>
+
+        <form id="step-newpass" class="ea-step hidden" novalidate>
+          <div id="ea-newpass-user-badge" class="user-badge-box hidden">
+            <img id="ea-newpass-user-avatar" class="user-badge-avatar" src="/icons/icon-512.png" alt="Avatar" decoding="async" />
+            <div class="user-badge-info">
+              <div id="ea-newpass-user-name" class="user-badge-name"></div>
+              <div id="ea-newpass-user-email" class="user-badge-email"></div>
+            </div>
+          </div>
+          <p class="ea-hint" id="ea-newpass-hint-wrap"><span data-i18n="createPassFor">Create a password for</span> <b id="ea-newpass-email"></b></p>
+          <div class="pw-input-wrapper">
+            <input id="ea-newpass" class="ea-input" type="password" placeholder="New password" data-i18n-ph="newPassword" autocomplete="new-password" />
+            <button type="button" class="btn-toggle-eye" data-target="ea-newpass" aria-label="Toggle password visibility" data-i18n-title="showPassword" title="Show password">
+              <svg class="eye-open-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="eye-off-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </div>
+          <div class="pw-requirements" id="ea-newpass-reqs" style="margin-top: 8px;">
+            <div class="pw-req unmet" data-req="len"><span class="req-icon">○</span> <span data-i18n="reqLen">At least 8 characters</span></div>
+            <div class="pw-req unmet" data-req="case"><span class="req-icon">○</span> <span data-i18n="reqCase">Uppercase and lowercase letters</span></div>
+            <div class="pw-req unmet" data-req="num"><span class="req-icon">○</span> <span data-i18n="reqNum">At least one number</span></div>
+          </div>
+          <button class="btn-primary btn-block" id="ea-btn-newpass" type="submit" style="margin-top: 14px;" data-i18n="continue">Continue</button>
+          <p id="ea-newpass-error" class="ea-error hidden"></p>
+          <div class="ea-links" id="ea-newpass-links" style="margin-top: 12px;">
+            <button type="button" id="ea-newpass-cancel" class="link" data-i18n="gSignOutSwitch">Sign out and switch account</button>
+          </div>
+        </form>
+
+        <form id="step-name" class="ea-step hidden" novalidate>
+          <p class="ea-hint" id="ea-name-hint" data-i18n="nameHint">What should people call you?</p>
+          <input id="ea-name" class="ea-input" type="text" placeholder="Your name" data-i18n-ph="yourName" maxlength="60" />
+          <button class="btn-primary btn-block" id="ea-btn-name" type="submit" data-i18n="continue">Continue</button>
+        </form>
+
+        <form id="step-photo" class="ea-step hidden" novalidate>
+          <p class="ea-hint" id="ea-photo-hint" data-i18n="photoHint">Add a profile photo (optional)</p>
+          <div id="ea-photo-preview" class="ea-photo-preview"></div>
+          <input id="ea-photo" class="ea-input" type="file" accept="image/*" />
+          <button class="btn-primary btn-block" id="ea-btn-photo" type="submit" data-i18n="finish">Finish</button>
+          <button type="button" id="ea-photo-skip" class="btn-ghost btn-block" data-i18n="skipForNow">Skip for now</button>
+        </form>
+
+        <form id="step-resetpass" class="ea-step hidden" novalidate>
+          <p class="ea-hint" id="ea-resetpass-hint-wrap"><span data-i18n="resetPassHint">Set a new password for</span> <b id="ea-resetpass-email"></b></p>
+          <div class="pw-input-wrapper">
+            <input id="ea-resetpass" class="ea-input" type="password" placeholder="New password" data-i18n-ph="newPassword" autocomplete="new-password" />
+            <button type="button" class="btn-toggle-eye" data-target="ea-resetpass" aria-label="Toggle password visibility" data-i18n-title="showPassword" title="Show password">
+              <svg class="eye-open-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg class="eye-off-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+            </button>
+          </div>
+          <div class="pw-requirements" id="ea-resetpass-reqs" style="margin-top: 8px;">
+            <div class="pw-req unmet" data-req="len"><span class="req-icon">○</span> <span data-i18n="reqLen">At least 8 characters</span></div>
+            <div class="pw-req unmet" data-req="case"><span class="req-icon">○</span> <span data-i18n="reqCase">Uppercase and lowercase letters</span></div>
+            <div class="pw-req unmet" data-req="num"><span class="req-icon">○</span> <span data-i18n="reqNum">At least one number</span></div>
+          </div>
+          <button class="btn-primary btn-block" id="ea-btn-resetpass" type="submit" style="margin-top: 14px;" data-i18n="setPassword">Set password</button>
+          <p id="ea-resetpass-error" class="ea-error hidden"></p>
+        </form>
+
+        <p class="legal" id="legal-id-text" style="margin-top: 24px;" data-i18n="legalId">Your email, name and photo are used only to identify you.</p>
+      <p class="legal"><a href="/privacy" class="link" id="privacy-link" data-i18n="navPrivacy">Privacy Policy</a> · <a href="/terms" class="link" id="terms-link" data-i18n="navTerms">Terms of Service</a> · <a href="/support" class="link" id="support-link" data-i18n="supportAppeals">Support & Appeals</a></p>
+    </div>
+  </section>
+
+  <div id="toasts" class="toasts"></div>
+
+  <script>
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var returnTo = params.get('returnTo') || '/app';
+      if (returnTo === '/' || !returnTo.startsWith('/')) returnTo = '/app';
+      var gBtn = document.querySelector('.btn-google');
+      if (gBtn) {
+        gBtn.href = '/auth/google?returnTo=' + encodeURIComponent(returnTo);
+        gBtn.target = '_top';
+        gBtn.addEventListener('click', function(e) {
+          if (window.self !== window.top) {
+            e.preventDefault();
+            window.top.location.href = window.location.origin + '/auth/google?returnTo=' + encodeURIComponent(returnTo);
+          }
+        });
+      }
+    })();
+  </script>
+  <script src="/crypto.js"></script>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

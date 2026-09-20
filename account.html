@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="HandheldFriendly" content="true" />
+  <title data-i18n="accountTitle">Account Management — ShareWeb</title>
+  <link rel="canonical" href="https://shareweb.slomz.is-a.dev/account" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/lock-frame.js" defer></script>
+  <script src="/page-i18n.js" defer></script>
+  <script type="speculationrules">
+  {
+    "prefetch": [
+      {
+        "source": "list",
+        "urls": ["/app", "/support", "/privacy", "/terms"],
+        "eagerness": "moderate"
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root,
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #090a10;
+      --card-bg: #12141e;
+      --card-bg-2: #181b28;
+      --card-bg-3: #151724;
+      --input-bg: #0d0f17;
+      --border-color: #23273a;
+      --accent: #4a4ad9;
+      --accent-hover: #5d5df0;
+      --danger: #ef4444;
+      --danger-bg: rgba(239, 68, 68, 0.12);
+      --success: #10b981;
+      --success-bg: rgba(16, 185, 129, 0.12);
+      --warning: #f59e0b;
+      --warning-bg: rgba(245, 158, 11, 0.12);
+      --text: #f0f2fa;
+      --text-muted: #8b92ab;
+      --header-bg: rgba(18, 20, 30, 0.85);
+      --nav-hover: #23273c;
+      --modal-bg: #151724;
+      --modal-overlay: rgba(0, 0, 0, 0.7);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        color-scheme: light;
+        --bg: #f4f5fb;
+        --card-bg: #ffffff;
+        --card-bg-2: #f8f9fe;
+        --card-bg-3: #ffffff;
+        --input-bg: #ffffff;
+        --border-color: #e2e8f0;
+        --accent: #5b5bf0;
+        --accent-hover: #4a4ad9;
+        --danger: #dc2626;
+        --danger-bg: #fee2e2;
+        --success: #16a34a;
+        --success-bg: #dcfce7;
+        --warning: #d97706;
+        --warning-bg: #fef3c7;
+        --text: #0f172a;
+        --text-muted: #64748b;
+        --header-bg: rgba(255, 255, 255, 0.88);
+        --nav-hover: #e2e8f0;
+        --modal-bg: #ffffff;
+        --modal-overlay: rgba(15, 23, 42, 0.5);
+      }
+    }
+
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg: #f4f5fb;
+      --card-bg: #ffffff;
+      --card-bg-2: #f8f9fe;
+      --card-bg-3: #ffffff;
+      --input-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --accent: #5b5bf0;
+      --accent-hover: #4a4ad9;
+      --danger: #dc2626;
+      --danger-bg: #fee2e2;
+      --success: #16a34a;
+      --success-bg: #dcfce7;
+      --warning: #d97706;
+      --warning-bg: #fef3c7;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --header-bg: rgba(255, 255, 255, 0.88);
+      --nav-hover: #e2e8f0;
+      --modal-bg: #ffffff;
+      --modal-overlay: rgba(15, 23, 42, 0.5);
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    /* Top Bar */
+    .acc-header {
+      background: var(--header-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 28px;
+      padding-top: max(14px, env(safe-area-inset-top, 0px));
+      padding-left: max(20px, env(safe-area-inset-left, 0px));
+      padding-right: max(20px, env(safe-area-inset-right, 0px));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .acc-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .acc-brand .acc-logo-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .acc-brand h1 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .acc-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .acc-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      background: var(--card-bg-2);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+      cursor: pointer;
+    }
+    .acc-nav-btn:hover { background: var(--nav-hover); }
+
+    /* Layout */
+    .acc-content {
+      max-width: 740px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+      padding-bottom: max(80px, env(safe-area-inset-bottom, 0px));
+      padding-left: max(16px, env(safe-area-inset-left, 0px));
+      padding-right: max(16px, env(safe-area-inset-right, 0px));
+      box-sizing: border-box;
+      flex: 1;
+    }
+
+    /* Profile Banner */
+    .profile-banner {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      position: relative;
+    }
+    .profile-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--card-bg-2);
+      border: 2px solid var(--border-color);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .profile-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .profile-name {
+      margin: 0 0 4px;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .profile-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+    .profile-email-badge {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+      overflow-wrap: anywhere;
+      word-break: break-all;
+    }
+    .auth-pill {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(99, 102, 241, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    /* Cards */
+    .acc-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px 26px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .acc-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .acc-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(99, 102, 241, 0.12);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(99, 102, 241, 0.25);
+    }
+    .acc-card-icon.danger {
+      background: var(--danger-bg);
+      color: var(--danger);
+      border-color: rgba(239, 68, 68, 0.3);
+    }
+    .acc-card-title-group h3 {
+      margin: 0 0 4px;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .acc-card-title-group p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Form Elements */
+    .acc-field {
+      margin-bottom: 14px;
+    }
+    .acc-field label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-muted);
+    }
+    .acc-input {
+      width: 100%;
+      box-sizing: border-box;
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .acc-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+    .acc-input.code-input {
+      letter-spacing: 4px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 18px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* Password Input Wrapper & Eye Toggle */
+    .pw-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+    .pw-input-wrapper .acc-input {
+      width: 100%;
+      padding-right: 44px;
+    }
+    html[dir="rtl"] .pw-input-wrapper .acc-input {
+      padding-right: 14px;
+      padding-left: 44px;
+    }
+    .btn-toggle-eye {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      padding: 7px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s, background-color 0.15s;
+      z-index: 2;
+    }
+    .btn-toggle-eye:hover {
+      color: var(--text);
+      background: var(--nav-hover);
+    }
+    .btn-toggle-eye:focus-visible {
+      outline: 2px solid var(--accent);
+    }
+    html[dir="rtl"] .btn-toggle-eye {
+      right: auto;
+      left: 6px;
+    }
+
+    /* Action Buttons */
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+    .btn-action:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      transform: translateY(-1px);
+    }
+    .btn-action:active {
+      transform: translateY(0.5px) scale(0.99);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    }
+    .btn-action:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    .btn-danger {
+      background: var(--danger);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    }
+    .btn-danger:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: var(--card-bg-2);
+      color: var(--text);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+    }
+    .btn-outline:hover {
+      background: var(--nav-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Danger Card */
+    .acc-card.danger-zone {
+      border-color: rgba(239, 68, 68, 0.35);
+      background: rgba(239, 68, 68, 0.02);
+    }
+
+    /* Alerts and Notices */
+    .acc-alert {
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .acc-alert.info {
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      color: var(--accent);
+    }
+    .acc-alert.danger {
+      background: var(--danger-bg);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: var(--danger);
+    }
+    .acc-alert.success {
+      background: var(--success-bg);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--success);
+    }
+
+    /* Modal Dialog */
+    .acc-modal {
+      position: fixed;
+      inset: 0;
+      background: var(--modal-overlay);
+      backdrop-filter: blur(5px);
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+    }
+    .acc-modal.hidden { display: none; }
+    .acc-modal-box {
+      width: min(480px, 100%);
+      background: var(--modal-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      color: var(--text);
+    }
+    .acc-modal-box h3 { margin: 0 0 10px; font-size: 20px; font-weight: 700; color: var(--text); }
+    .acc-modal-box p { margin: 0 0 18px; font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    .reenc-spinner {
+      width: 36px;
+      height: 36px;
+      margin: 8px auto 20px;
+      border: 4px solid var(--border-color);
+      border-top-color: #4f8cff;
+      border-radius: 50%;
+      animation: reenc-spin 0.9s linear infinite;
+    }
+    @keyframes reenc-spin { to { transform: rotate(360deg); } }
+    .reenc-check {
+      width: 76px;
+      height: 76px;
+      margin: 4px auto 16px;
+    }
+    .reenc-check svg { width: 100%; height: 100%; display: block; }
+    .reenc-check circle {
+      fill: none;
+      stroke: #22c55e;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      animation: reenc-draw 0.6s ease-out forwards;
+    }
+    .reenc-check path {
+      fill: none;
+      stroke: #22c55e;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      animation: reenc-draw 0.4s ease-out 0.55s forwards;
+    }
+    @keyframes reenc-draw { to { stroke-dashoffset: 0; } }
+    .acc-modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .feedback-msg {
+      font-size: 13px;
+      margin-top: 10px;
+      min-height: 18px;
+    }
+    .feedback-msg.error { color: var(--danger); }
+    .feedback-msg.success { color: var(--success); }
+
+    /* Passkeys Card */
+    .passkeys-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .passkey-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 16px;
+      background: var(--card-bg-2);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .passkey-item:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+    .passkey-item-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .passkey-item-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+    }
+    .passkey-item-info {
+      min-width: 0;
+    }
+    .passkey-item-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 0 0 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .passkey-item-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    .passkey-item-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .btn-icon-danger {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      padding: 7px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s, background 0.15s, border-color 0.15s;
+    }
+    .btn-icon-danger:hover {
+      color: var(--danger);
+      background: var(--danger-bg);
+      border-color: rgba(239, 68, 68, 0.25);
+    }
+    .passkeys-empty {
+      padding: 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13.5px;
+      background: var(--card-bg-2);
+      border: 1px dashed var(--border-color);
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    /* Mobile Viewports */
+    @media (max-width: 540px) {
+      .acc-header { padding: 10px 14px; padding-top: max(10px, env(safe-area-inset-top, 0px)); }
+      .profile-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 16px;
+        gap: 12px;
+      }
+      .profile-meta-row { justify-content: center; }
+      .acc-card { padding: 18px 16px; }
+      .acc-modal-box { padding: 20px 16px; width: 94vw; }
+    }
+
+    /* RTL */
+    html[dir="rtl"] body { text-align: right; }
+    html[dir="rtl"] .acc-header { flex-direction: row-reverse; }
+    html[dir="rtl"] .profile-banner { flex-direction: row-reverse; text-align: right; }
+    html[dir="rtl"] .acc-card-header { flex-direction: row-reverse; }
+    html[dir="rtl"] .acc-modal-actions { flex-direction: row-reverse; }
+    html[dir="rtl"] .acc-field { text-align: right; }
+    html[dir="rtl"] .pw-requirements { text-align: right; }
+    html[dir="rtl"] .pw-match-indicator { text-align: right; }
+    html[dir="rtl"] .acc-alert { flex-direction: row-reverse; text-align: right; }
+    html[dir="rtl"] .passkey-item { flex-direction: row-reverse; text-align: right; }
+    html[dir="rtl"] .passkey-item-left { flex-direction: row-reverse; }
+  </style>
+  <style id="global-loader-crit-css">
+    #global-page-loader {
+      position: fixed; inset: 0; z-index: 99999999;
+      background: #090a10;
+      color: #f8fafc;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) #global-page-loader {
+        background: #f4f5fb;
+        color: #1e293b;
+      }
+      :root:not([data-theme="dark"]) #global-page-loader .loader-status-text {
+        color: #64748b;
+      }
+    }
+    :root[data-theme="light"] #global-page-loader {
+      background: #f4f5fb !important;
+      color: #1e293b !important;
+    }
+    :root[data-theme="light"] #global-page-loader .loader-status-text {
+      color: #64748b !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Global Page Loader (Zero-FOUC Barrier) -->
+  <div id="global-page-loader" class="page-loading-barrier" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-logo-wrap">
+        <img src="/icons/icon-512.png" alt="ShareWeb" class="loader-logo-img" fetchpriority="high" decoding="async" />
+      </div>
+      <div class="loader-spinner"></div>
+      <span class="loader-status-text" data-i18n="loading">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="acc-header">
+    <a href="/app" class="acc-brand">
+      <img src="/icons/icon-192.png" alt="ShareWeb" class="acc-logo-img" decoding="async" />
+      <h1 data-i18n="brandTitle">ShareWeb</h1>
+    </a>
+    <div class="acc-header-actions">
+      <a href="/app" class="acc-nav-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <span data-i18n="returnToApp">Return to App</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="acc-content">
+    <!-- Profile Summary Banner -->
+    <div class="profile-banner">
+      <img id="user-avatar" src="/icons/icon-192.png" alt="User Avatar" class="profile-avatar" decoding="async" />
+      <div class="profile-info">
+        <h2 id="user-display-name" class="profile-name">...</h2>
+        <div class="profile-meta-row">
+          <span id="user-display-email" class="profile-email-badge">...</span>
+          <span id="user-auth-badge" class="auth-pill" data-i18n="stgAccount">Account</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1. Change Email Card -->
+    <section class="acc-card" id="card-change-email">
+      <div class="acc-card-header">
+        <div class="acc-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="acc-card-title-group">
+          <h3 data-i18n="changeEmail">Change Email</h3>
+          <p data-i18n="changeEmailSub">Update the primary email address linked to your account and files.</p>
+        </div>
+      </div>
+
+      <!-- Step 1 & 2: Enter Password and New Email -->
+      <form id="form-request-email-change">
+        <div class="acc-field">
+          <label for="email-change-pw" data-i18n="currentPassword">Current Password</label>
+          <div class="pw-input-wrapper">
+            <input type="password" id="email-change-pw" class="acc-input" placeholder="Enter your current password" data-i18n-ph="enterCurrentPassword" autocomplete="current-password" required />
+            <button type="button" class="btn-toggle-eye" data-target="email-change-pw" aria-label="Toggle password visibility" data-i18n-title="showPassword" title="Show password">
+              <svg class="eye-open-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              <svg class="eye-off-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="acc-field">
+          <label for="email-change-new" data-i18n="newEmail">New Email Address</label>
+          <input type="email" id="email-change-new" class="acc-input" placeholder="name@example.com" data-i18n-ph="emailAddress" autocomplete="email" required />
+        </div>
+        <div style="display: flex; justify-content: flex-end; margin-top: 16px;">
+          <button type="submit" id="btn-request-email-code" class="btn-action">
+            <span data-i18n="sendVerificationCode">Send Verification Code</span>
+          </button>
+        </div>
+        <div id="email-change-request-feedback" class="feedback-msg"></div>
+      </form>
+
+      <!-- Step 3: Verify 6-digit Code (Hidden initially) -->
+      <form id="form-confirm-email-change" class="hidden" style="margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border-color);">
+        <div class="acc-alert info">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span id="email-code-notice" data-i18n="enterEmailCodeNotice">Enter the 6-digit code sent to your new email.</span>
+        </div>
+        <div class="acc-field">
+          <label for="email-change-code" data-i18n="digitCode">6-Digit Verification Code</label>
+          <input type="text" id="email-change-code" class="acc-input code-input" maxlength="6" inputmode="numeric" placeholder="••••••" required />
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+          <button type="button" id="btn-cancel-email-step" class="btn-action btn-outline" data-i18n="cancel">Cancel</button>
+          <button type="submit" id="btn-confirm-email-change" class="btn-action">
+            <span data-i18n="confirmEmailChange">Confirm Email Change</span>
+          </button>
+        </div>
+        <div id="email-change-confirm-feedback" class="feedback-msg"></div>
+      </form>
+    </section>
+
+    <!-- 2. Change Password Card -->
+    <section class="acc-card" id="card-change-password">
+      <div class="acc-card-header">
+        <div class="acc-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <div class="acc-card-title-group">
+          <h3 data-i18n="changePassword">Change Password</h3>
+          <p data-i18n="changePasswordSub">Update your account authentication and encryption password.</p>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 14px;">
+        <button type="button" id="btn-toggle-pw-reset-mode" class="btn-ghost" style="background: none; border: none; padding: 0; font-size: 13px; color: var(--accent); cursor: pointer; text-decoration: underline;" data-i18n="verifyViaEmailCode">Forgot current password? Verify via email code instead</button>
+      </div>
+
+      <!-- Standard: Change with Current Password -->
+      <form id="form-change-password">
+        <div class="acc-field">
+          <label for="pw-change-current" data-i18n="currentPassword">Current Password</label>
+          <div class="pw-input-wrapper">
+            <input type="password" id="pw-change-current" class="acc-input" placeholder="Enter current password" data-i18n-ph="enterCurrentPassword" autocomplete="current-password" required />
+            <button type="button" class="btn-toggle-eye" data-target="pw-change-current" aria-label="Toggle password visibility" data-i18n-title="showPassword" title="Show password">
+              <svg class="eye-open-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              <svg class="eye-off-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="acc-field">
+          <label for="pw-change-new" data-i18n="newPassword">New Password</label>
+          <div class="pw-input-wrapper">
+            <input type="password" id="pw-change-new" class="acc-input" placeholder="Enter new password" data-i18n-ph="newPassword" autocomplete="new-password" required />
+            <button type="button" class="btn-toggle-eye" data-target="pw-change-new" aria-label="Toggle password visibility" data-i18n-title="showPassword" title="Show password">
+              <svg class="eye-open-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              <svg class="eye-off-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+            </button>
+          </div>
+          <div class="pw-requirements" id="pw-change-reqs" style="margin-top: 8px;">
+            <div class="pw-req unmet" data-req="len"><span class="req-icon">○</span> <span data-i18n="reqLen">At least 8 characters</span></div>
+            <div class="pw-req unmet" data-req="case"><span class="req-icon">○</span> <span data-i18n="reqCase">Uppercase and lowercase letters</span></div>
+            <div class="pw-req unmet" data-req="num"><span class="req-icon">○</span> <span data-i18n="reqNum">At least one number</span></div>
+          </div>
+        </div>
+
+        <div class="acc-field">
+          <label for="pw-change-confirm" data-i18n="confirmNewPassword">Confirm New Password</label>
+          <div class="pw-input-wrapper">
+            <input type="password" id="pw-change-confirm" class="acc-input" placeholder="Re-enter new password" data-i18n-ph="confirmPassword" autocomplete="new-password" required />
+            <button type="button" class="btn-toggle-eye" data-target="pw-change-confirm" aria-label="Toggle password visibility" data-i18n-title="showPassword" title="Show password">
+              <svg class="eye-open-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              <svg class="eye-off-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+            </button>
+          </div>
+          <div id="pw-change-match" class="pw-match-indicator"></div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; margin-top: 16px;">
+          <button type="submit" id="btn-submit-pw-change" class="btn-action">
+            <span data-i18n="updatePassword">Update Password</span>
+          </button>
+        </div>
+        <div id="pw-change-feedback" class="feedback-msg"></div>
+      </form>
+
+      <!-- Alternative (Solution 2): In-Session Password Reset via Email Code -->
+      <form id="form-reset-password-email" class="hidden">
+        <div class="acc-alert info">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span data-i18n="activeSessionResetNotice">Because you are signed in on this device, you can reset your password safely without losing your encrypted files by verifying a 6-digit code sent to your email.</span>
+        </div>
+
+        <div style="margin-bottom: 16px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+          <button type="button" id="btn-pw-reset-send-code" class="btn-action btn-outline" style="font-size: 13px; padding: 8px 16px;">
+            <span data-i18n="sendResetCodeToEmail">Send 6-Digit Code to Email</span>
+          </button>
+          <span id="pw-reset-code-sent-status" style="font-size: 13px; color: var(--text-muted);"></span>
+        </div>
+
+        <div class="acc-field">
+          <label for="pw-reset-code-input" data-i18n="digitCode">6-Digit Verification Code</label>
+          <input type="text" id="pw-reset-code-input" class="acc-input code-input" maxlength="6" inputmode="numeric" placeholder="••••••" required />
+        </div>
+
+        <div class="acc-field">
+          <label for="pw-reset-new-input" data-i18n="newPassword">New Password</label>
+          <div class="pw-input-wrapper">
+            <input type="password" id="pw-reset-new-input" class="acc-input" placeholder="Enter new password" data-i18n-ph="newPassword" autocomplete="new-password" required />
+            <button type="button" class="btn-toggle-eye" data-target="pw-reset-new-input" aria-label="Toggle password visibility" data-i18n-title="showPassword" title="Show password">
+              <svg class="eye-open-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              <svg class="eye-off-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+            </button>
+          </div>
+          <div class="pw-requirements" id="pw-reset-reqs" style="margin-top: 8px;">
+            <div class="pw-req unmet" data-req="len"><span class="req-icon">○</span> <span data-i18n="reqLen">At least 8 characters</span></div>
+            <div class="pw-req unmet" data-req="case"><span class="req-icon">○</span> <span data-i18n="reqCase">Uppercase and lowercase letters</span></div>
+            <div class="pw-req unmet" data-req="num"><span class="req-icon">○</span> <span data-i18n="reqNum">At least one number</span></div>
+          </div>
+        </div>
+
+        <div class="acc-field">
+          <label for="pw-reset-confirm-input" data-i18n="confirmNewPassword">Confirm New Password</label>
+          <div class="pw-input-wrapper">
+            <input type="password" id="pw-reset-confirm-input" class="acc-input" placeholder="Re-enter new password" data-i18n-ph="confirmPassword" autocomplete="new-password" required />
+            <button type="button" class="btn-toggle-eye" data-target="pw-reset-confirm-input" aria-label="Toggle password visibility" data-i18n-title="showPassword" title="Show password">
+              <svg class="eye-open-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              <svg class="eye-off-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+            </button>
+          </div>
+          <div id="pw-reset-match" class="pw-match-indicator"></div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 16px;">
+          <button type="button" id="btn-switch-back-current-pw" class="btn-action btn-outline" data-i18n="useCurrentPasswordInstead">Use current password instead</button>
+          <button type="submit" id="btn-submit-pw-reset-email" class="btn-action">
+            <span data-i18n="resetPasswordBtn">Reset & Update Password</span>
+          </button>
+        </div>
+        <div id="pw-reset-feedback" class="feedback-msg"></div>
+      </form>
+    </section>
+
+    <!-- 3. Passkeys & WebAuthn Card -->
+    <section class="acc-card" id="card-passkeys">
+      <div class="acc-card-header">
+        <div class="acc-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 2l-2 2m-1.5 1.5L14 9M3 21l3-3m1.5-1.5L11 13m-2-2a5 5 0 1 1 7.07-7.07 5 5 0 0 1-7.07 7.07z"/>
+            <path d="M15.5 8.5l.01.01"/>
+          </svg>
+        </div>
+        <div class="acc-card-title-group">
+          <h3 data-i18n="passkeysManage">Passkeys & WebAuthn</h3>
+          <p data-i18n="passkeysManageSub">Manage hardware security keys, Touch ID, Face ID, and Windows Hello authenticators for instant passwordless sign-in.</p>
+        </div>
+      </div>
+
+      <div id="passkeys-unsupported-alert" class="acc-alert info hidden">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <span data-i18n="passkeysNotSupported">Passkeys are not supported on this browser or device.</span>
+      </div>
+
+      <div id="passkeys-list" class="passkeys-list">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <div id="passkeys-empty" class="passkeys-empty hidden">
+        <p style="margin: 0;" data-i18n="noPasskeysRegistered">No passkeys registered yet. Add a passkey to sign in faster and securely.</p>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 14px;">
+        <span id="passkeys-count-label" style="font-size: 13px; color: var(--text-muted);"></span>
+        <button type="button" id="btn-add-passkey" class="btn-action">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          <span data-i18n="passkeyAdd">Add a Passkey</span>
+        </button>
+      </div>
+      <div id="passkeys-feedback" class="feedback-msg"></div>
+    </section>
+
+    <!-- 4. Sign Out Card -->
+    <section class="acc-card">
+      <div class="acc-card-header">
+        <div class="acc-card-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </div>
+        <div class="acc-card-title-group">
+          <h3 data-i18n="navLogout">Sign Out</h3>
+          <p data-i18n="signOutSub">Sign out of your active ShareWeb session on this browser.</p>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: flex-end;">
+        <button type="button" id="btn-account-logout" class="btn-action btn-outline">
+          <span data-i18n="navLogout">Sign Out</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 5. Delete Account Card (Danger Zone) -->
+    <section class="acc-card danger-zone">
+      <div class="acc-card-header">
+        <div class="acc-card-icon danger">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+        </div>
+        <div class="acc-card-title-group">
+          <h3 style="color: var(--danger);" data-i18n="deleteAccount">Delete Account</h3>
+          <p data-i18n="deleteAccountSub">Permanently delete your account and all stored history. This action cannot be undone.</p>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: flex-end;">
+        <button type="button" id="btn-start-delete-flow" class="btn-action btn-danger">
+          <span data-i18n="deleteAccount">Delete Account</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Re-encrypt Files on Password Change Modal -->
+  <div id="reenc-modal" class="acc-modal hidden" role="dialog" aria-modal="true" aria-labelledby="reenc-title">
+    <div class="acc-modal-box">
+      <h3 id="reenc-title" style="text-align:center;">Encrypting your files…</h3>
+      <div class="reenc-spinner" role="status" aria-label="Encrypting"></div>
+      <div class="reenc-check hidden" role="status" aria-label="Done">
+        <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path fill="none" d="M14 27l8 8 16-16"/></svg>
+      </div>
+      <p id="reenc-status" style="text-align:center;">Reading your files…</p>
+      <p style="text-align:center; font-size:13px; color:var(--text-muted);">Keep this tab open — your files are being re-encrypted with your new password.</p>
+    </div>
+  </div>
+
+  <!-- Delete Account Multi-Step Safety Modal -->
+  <div id="delete-modal" class="acc-modal hidden">
+    <div class="acc-modal-box">
+      <!-- Step 1: Initial Warning -->
+      <div id="delete-step-warning">
+        <div style="width: 48px; height: 48px; border-radius: 12px; background: var(--danger-bg); color: var(--danger); display: grid; place-items: center; margin-bottom: 16px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h3 style="color: var(--danger);" data-i18n="deleteAccountWarningTitle">Warning: Irreversible Action</h3>
+        <p data-i18n="deleteAccountWarningText">If you delete this account, you will no longer have access to it or its files. You will also have to wait 7 days if you wish to create a new account with this email address.</p>
+        <div class="acc-modal-actions">
+          <button type="button" id="btn-delete-cancel-1" class="btn-action btn-outline" data-i18n="cancel">Cancel</button>
+          <button type="button" id="btn-delete-proceed-code" class="btn-action btn-danger" data-i18n="btnKnowWhatImDoing">I know what I'm doing</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Verification Code & Password Confirmation -->
+      <div id="delete-step-confirm" class="hidden">
+        <h3 data-i18n="securityVerificationTitle">Security Verification</h3>
+        <p id="delete-code-sent-note" data-i18n="deleteCodeSentNote">We emailed a 6-digit security code to your email. Enter it below along with your password to authorize permanent deletion.</p>
+        
+        <form id="form-delete-final">
+          <div class="acc-field">
+            <label for="delete-input-code" data-i18n="digitCode">6-Digit Security Code</label>
+            <input type="text" id="delete-input-code" class="acc-input code-input" maxlength="6" inputmode="numeric" placeholder="••••••" required />
+          </div>
+          <div class="acc-field">
+            <label for="delete-input-pw" data-i18n="currentPassword">Password</label>
+            <div class="pw-input-wrapper">
+              <input type="password" id="delete-input-pw" class="acc-input" placeholder="Enter your password" data-i18n-ph="enterCurrentPassword" autocomplete="current-password" required />
+              <button type="button" class="btn-toggle-eye" data-target="delete-input-pw" aria-label="Toggle password visibility" data-i18n-title="showPassword" title="Show password">
+                <svg class="eye-open-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <svg class="eye-off-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                  <line x1="1" y1="1" x2="23" y2="23"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div id="delete-feedback" class="feedback-msg error"></div>
+          <div class="acc-modal-actions">
+            <button type="button" id="btn-delete-cancel-2" class="btn-action btn-outline" data-i18n="cancel">Cancel</button>
+            <button type="submit" id="btn-delete-final-execute" class="btn-action btn-danger" data-i18n="btnFinalDeleteAccount">Delete the Account</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="toasts" class="toasts"></div>
+
+  <script src="/crypto.js"></script>
+  <script src="/account.js"></script>
+</body>
+</html>

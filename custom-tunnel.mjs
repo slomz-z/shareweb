@@ -7,12 +7,19 @@
 const LOCAL_PORT = process.env.PORT || 8080;
 const LOCAL_ORIGIN = process.env.LOCAL_ORIGIN || ("http://127.0.0.1:" + LOCAL_PORT);
 const TUNNEL_ENDPOINT = process.env.TUNNEL_ENDPOINT || "wss://shareweb-137.pages.dev/_sw_tunnel/connect";
-const TUNNEL_SECRET = process.env.TUNNEL_SECRET || "sw_sec_0569da26f2d63a71b1d3d3a12650175316bdfe070270ca09";
+const TUNNEL_SECRET = process.env.TUNNEL_SECRET; // REQUIRED — set in env (never committed)
+
+if (!TUNNEL_SECRET) {
+  console.error("[Custom Tunnel] FATAL: TUNNEL_SECRET must be set in the environment (e.g. ~/.shareweb/env). Refusing to start with no auth secret.");
+  process.exit(1);
+}
 
 let ws = null;
 let pingInterval = null;
 let isReconnecting = false;
 const activeSockets = new Map();
+const pendingUploads = new Map();
+const CHUNK_SIZE = 512 * 1024; // 512 KB slices fit safely under 1MB WebSocket frame limit
 
 function log(msg) {
   console.log(`[${new Date().toISOString()}] [Custom Tunnel] ${msg}`);
@@ -35,7 +42,9 @@ async function handleHttpRequest(req) {
     headers.set("X-Forwarded-Proto", "https");
 
     let body = null;
-    if (req.body && req.method !== "GET" && req.method !== "HEAD") {
+    if (req.bodyBuffer) {
+      body = req.bodyBuffer;
+    } else if (req.body && req.method !== "GET" && req.method !== "HEAD") {
       body = Buffer.from(req.body, "base64");
     }
 
@@ -46,23 +55,57 @@ async function handleHttpRequest(req) {
       redirect: "manual"
     });
 
-    const arrayBuf = await localRes.arrayBuffer();
-    const base64Body = Buffer.from(arrayBuf).toString("base64");
-
     const resHeaders = {};
     for (const [k, v] of localRes.headers.entries()) {
       resHeaders[k.toLowerCase()] = v;
     }
 
-    if (ws && ws.readyState === WebSocket.OPEN) {
-      ws.send(JSON.stringify({
-        type: "res",
-        id: req.id,
-        status: localRes.status,
-        headers: resHeaders,
-        body: base64Body,
-        isBase64: true
-      }));
+    const arrayBuf = await localRes.arrayBuffer();
+    const buffer = Buffer.from(arrayBuf);
+
+    if (buffer.length <= CHUNK_SIZE) {
+      // Direct single frame for small payloads
+      if (ws && ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({
+          type: "res",
+          id: req.id,
+          status: localRes.status,
+          headers: resHeaders,
+          body: buffer.toString("base64"),
+          isBase64: true
+        }));
+      }
+    } else {
+      // Streamed multi-chunk frame for large payloads (avoids 1MB WebSocket frame limit)
+      if (ws && ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({
+          type: "res_start",
+          id: req.id,
+          status: localRes.status,
+          headers: resHeaders
+        }));
+
+        for (let offset = 0; offset < buffer.length; offset += CHUNK_SIZE) {
+          if (!ws || ws.readyState !== WebSocket.OPEN) break;
+          const slice = buffer.subarray(offset, offset + CHUNK_SIZE);
+          ws.send(JSON.stringify({
+            type: "res_chunk",
+            id: req.id,
+            chunk: slice.toString("base64")
+          }));
+
+          if (ws.bufferedAmount > CHUNK_SIZE) {
+            await new Promise(r => setImmediate(r));
+          }
+        }
+
+        if (ws && ws.readyState === WebSocket.OPEN) {
+          ws.send(JSON.stringify({
+            type: "res_end",
+            id: req.id
+          }));
+        }
+      }
     }
   } catch (err) {
     log(`Error handling request ${req.id} (${req.url}): ${err.message}`);
@@ -159,6 +202,34 @@ function connect() {
         const msg = JSON.parse(event.data);
         if (msg.type === "req") {
           handleHttpRequest(msg);
+        } else if (msg.type === "req_start") {
+          pendingUploads.set(msg.id, {
+            id: msg.id,
+            method: msg.method,
+            url: msg.url,
+            headers: msg.headers,
+            chunks: []
+          });
+        } else if (msg.type === "req_chunk") {
+          const upload = pendingUploads.get(msg.id);
+          if (upload) {
+            upload.chunks.push(Buffer.from(msg.chunk, "base64"));
+          }
+        } else if (msg.type === "req_end") {
+          const upload = pendingUploads.get(msg.id);
+          if (upload) {
+            pendingUploads.delete(msg.id);
+            const fullBody = Buffer.concat(upload.chunks);
+            handleHttpRequest({
+              id: upload.id,
+              method: upload.method,
+              url: upload.url,
+              headers: upload.headers,
+              bodyBuffer: fullBody
+            });
+          }
+        } else if (msg.type === "req_abort") {
+          pendingUploads.delete(msg.id);
         } else if (msg.type === "ws_open") {
           handleWebSocketOpen(msg);
         } else if (msg.type === "ws_msg") {

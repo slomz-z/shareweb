@@ -37,8 +37,9 @@ async function handleHttpRequest(req) {
         }
       }
     }
-    headers.set("Host", "shareweb.slomz.is-a.dev");
-    headers.set("X-Forwarded-Host", "shareweb.slomz.is-a.dev");
+    const originalHost = (req.headers && req.headers.host) || "shareweb.slomz.is-a.dev";
+    headers.set("Host", originalHost);
+    headers.set("X-Forwarded-Host", originalHost);
     headers.set("X-Forwarded-Proto", "https");
 
     let body = null;
@@ -127,10 +128,11 @@ function handleWebSocketOpen(msg) {
   log(`Opening local WebSocket bridge for ${msg.id} -> ${localWsUrl}`);
 
   try {
+    const originalHost = (msg.headers && msg.headers.host) || "shareweb.slomz.is-a.dev";
     const localWs = new WebSocket(localWsUrl, {
       headers: {
-        "Host": "shareweb.slomz.is-a.dev",
-        "X-Forwarded-Host": "shareweb.slomz.is-a.dev",
+        "Host": originalHost,
+        "X-Forwarded-Host": originalHost,
         "X-Forwarded-Proto": "https"
       }
     });

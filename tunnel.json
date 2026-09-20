@@ -1,9 +1,9 @@
 {
   "publicUrl": "https://shareweb.slomz.is-a.dev",
   "tunnel": "direct",
-  "wanIp": "10.10.10.146",
+  "wanIp": "150.228.105.113",
   "tunnelPort": 8443,
   "directReachable": false,
-  "directUrl": "https://10.10.10.146:8443",
-  "updatedAt": "2026-09-20T18:02:18.450Z"
+  "directUrl": "https://150.228.105.113:8443",
+  "updatedAt": "2026-09-20T18:02:50.501Z"
 }

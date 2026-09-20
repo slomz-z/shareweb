@@ -1,0 +1,12 @@
+{
+  "main_module": "index.js",
+  "compatibility_date": "2024-09-01",
+  "bindings": [
+    {
+      "name": "TUNNEL_HUB",
+      "type": "durable_object_namespace",
+      "class_name": "ShareWebTunnelHub",
+      "namespace_id": "f42442f250794f14a51a098394e8b75f"
+    }
+  ]
+}
